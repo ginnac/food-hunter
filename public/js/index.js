@@ -1,20 +1,21 @@
 // Get references to page elements
-var $exampleText = $("#eaters");
-var $exampleDescription = $("#group");
+var $experienceEaters = $("#eaters");
+var $experienceGroup = $("#group");
 var $experienceEmail = $("#email");
 var $experienceZip = $("#zipcode");
-var $submitBtn = $("#submit");
+var $submitBtn = $("#groupSubmit");
 
 
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExperience: function(experience) {
+    
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/groups",
+      url: "/api/groups",
       data: JSON.stringify(experience)
     });
   },
@@ -29,8 +30,16 @@ var API = {
       url: "api/groups/" + id,
       type: "DELETE"
     });
-  }
-};
+  },
+
+  displaySurvey: function() {
+    return $.ajax({
+      url: "/survey",
+      type: "GET"
+    });
+},
+
+}
 
 // refreshExamples gets new examples from the db and repopulates the list
 // var refreshExamples = function() {
@@ -63,25 +72,30 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var submitGroup = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var newExperience = {
+    number_eaters: $experienceEaters.val().trim(),
+    group_name: $experienceGroup.val().trim(),
+    email: $experienceEmail.val().trim(),
+    zipcode: $experienceZip.val().trim(),
+    
+    
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // if (!(newExperience.text && newExperience.description)) {
+  //   alert("You must enter an example text and description!");
+  //   return;
+  // }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveExperience(newExperience).then(function() {
+    $exampleText.val("");
+    $exampleDescription.val("");
+    API.displaySurvey(),
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+ 
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -97,5 +111,5 @@ var handleFormSubmit = function(event) {
 // };
 
 // // Add event listeners to the submit and delete buttons
-// $submitBtn.on("click", handleFormSubmit);
+$submitBtn.on("click", submitGroup);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
