@@ -3,7 +3,7 @@
     "username": "",
     
     "password": "",
-    "database": "db",
+    "database": "fh_db",
 
     "host": "localhost",
     "dialect": "mysql"
