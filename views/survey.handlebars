@@ -5,15 +5,117 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
+          <h2 class="card-title">Survey Questions</h2>
+          <hr>
+          <h3>
+            <strong> Eater 1 </strong>
+          </h3>
+          <h4> What food type are you craving at the moment? </h4>
+          <select class="chosen-select" id="q1" style="display: none;">
+            <option value></option>
+            <option value="American Cuisine">American Cuisine</option>
+            <option value="Indian Cuisine">Indian Cuisine</option>
+            <option value="Thai Cuisine">Thai Cuisine</option>
+            <option value="Chinese Cuisine">Chinese Cuisine</option>
+            <option value="Greek Cuisine">Greek Cuisine</option>
+            <option value="Mexican Cuisine">Mexican Cuisine</option>
+            <option value="Japenese Cuisine">Japenese Cuisine</option>
+            <option value="Italian Cuisine">Italian Cuisine</option>
+          </select>
+          <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q1_chosen">
+            <a class="chosen-single chosen-default">
+              <span>Select an Option</span>
+              <div>
+                <b></b>
+              </div>
+            </a>
+            <div class="chosen-drop">
+              <div class="chosen-search">
+                <input type="text" autocomplete="off">
+              </div>
+              <ul class="chosen-results">
+                <li class="active-results" data-option-array-index="American Cuisine" style> American Cuisine</li>
+                <li class="active-results" data-option-array-index="Indian Cuisine" style> Indian Cuisine</li>
+                <li class="active-results" data-option-array-index="Thai Cuisine" style> Thai Cuisine</li>
+                <li class="active-results" data-option-array-index="Chinese Cuisine" style> Chinese Cuisine</li>
+                <li class="active-results" data-option-array-index="Greek Cuisine" style> Greek Cuisine</li>
+                <li class="active-results" data-option-array-index="Mexican Cuisine" style> Mexican Cuisine</li>
+                <li class="active-results" data-option-array-index="Japenese Cuisine" style> Japenese Cuisine</li>
+                <li class="active-results" data-option-array-index="Italian Cuisine" style> Italian Cuisine</li>
+              </ul>
+            </div>
+          </div>
+          <h3>
+            <strong>What's your current mood? </strong>
+            <select class="chosen-select" id="q2" style="display: none;">
+              <option value></option>
+              <option value="happy">happy</option>
+              <option value="sleepy">sleepy</option>
+              <option value="adventurous">adventurous</option>
+              <option value="hangry">hangry</option>
+            </select>
+            <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q2_chosen">
+              <a class="chosen-single chosen-default">
+                <span>Select an Option</span>
+                <div>
+                  <b></b>
+                </div>
+              </a>
+              <div class="chosen-drop">
+                <div class="chosen-search">
+                  <input type="text" autocomplete="off">
+                </div>
+                <ul class="chosen-results">
+                  <li class="active-results" data-option-array-index="happy" style> happy</li>
+                  <li class="active-results" data-option-array-index="sleepy" style> sleepy</li>
+                  <li class="active-results" data-option-array-index="adventurous" style> adventurous</li>
+                  <li class="active-results" data-option-array-index="hangry" style> hangry</li>
+                </ul>
+              </div>
+            </div>
+          </h3>
+          <h3>
+            <strong> How much would you like to spend on your meal? </strong>
+            <select class="chosen-select" id="q3" style="display: none;">
+              <option value></option>
+              <option value="5-10">5-10</option>
+              <option value="10-20">10-20</option>
+              <option value="30">30</option>
+            </select>
+            <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q3_chosen">
+              <a class="chosen-single chosen-default">
+                <span>Select an Option</span>
+                <div>
+                  <b></b>
+                </div>
+              </a>
+              <div class="chosen-drop">
+                <div class="chosen-search">
+                  <input type="text" autocomplete="off">
+                </div>
+                <ul class="chosen-results">
+                  <li class="active-results" data-option-array-index="5-10" style> 5-10</li>
+                  <li class="active-results" data-option-array-index="10-20" style> 10-20</li>
+                  <li class="active-results" data-option-array-index="30" style> 30</li>
+                </ul>
+              </div>
+            </div>
+          </h3>
+          {{!-- Sumbit Button --}}
+           <button type ="submit" class = "btn btn-primary btn-lg btn-block" id = "submit">
+             <i class = "fa fa-check-circle" aria-hidden = "true">
+               : : before 
+             </i>
+             "Submit"
+           </button> 
+            <hr>    {{!-- <p>
             <strong>ID</strong>: {{example.id}}</p>
           <p>
           <p>
             <strong>Text</strong>: {{example.text}}</p>
           <p>
             <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
+            <a href="/">← Back To Home</a> --}}
         </div>
       </div>
     </div>
