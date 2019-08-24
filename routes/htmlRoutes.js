@@ -8,7 +8,7 @@ module.exports = function(app) {
   });
 
   // Load survey page and until cover all number of eaters
-  app.get("/survey/:eaterNumber", function(req, res) {
+  app.get("/survey/:id", function(req, res) {
     db.Experiences.findOne({ where: { id: req.params.id } }).then(function(dbExperiences) {
       res.render("survey", {
         experiences: dbExperiences,
