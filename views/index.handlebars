@@ -2,31 +2,44 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
         <h2>Food Hunter</h2>
 
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Number of eaters</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input type="text" id="eaters" class="form-control" aria-describedby="example-text"
+              placeholder="Enter Number ">
           </div>
           <div class="form-group">
             <label for="example-description">Group Name</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <textarea class="form-control" id="group" aria-describedby="example-description"
+              placeholder="Enter Group Name"></textarea>
           </div>
           <div class="form-group">
             <label for="example-description">Email</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <textarea class="form-control" id="email" aria-describedby="example-description"
+              placeholder="Enter Email"></textarea>
           </div>
-           <div class="form-group">
+          <div class="form-group">
             <label for="example-description">Zip Code</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <textarea class="form-control" id="zipcode" aria-describedby="example-description"
+              placeholder="Enter Zipcode"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <div> 
+            <button type = "button" class = "btn btn-lg btn-primary">
+            <a href="/survey/:id">
+              <h4>
+                <span class= "glyphicon glyphicon-list-alt">
+                </span>
+                Go to Survey
+              </h4>
+            </a>
+            </button>
+          </div>
         </form>
 
 
-<!--- <h3>Examples:</h3>
+         {{!-- <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -37,11 +50,17 @@
         </ul>
       </div>
     </div>
+  </div> 
+</div> --}}
+
+<footer class= "footer">
+  <div class= "container">
+    <p>
+      <a href="https://github.com/ginnac/food-hunter">Github Repo</a>
+    </p>
   </div>
-</div>
+</footer>
 
--->
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- connect to its own javascript -->
-<script src="/js/index.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- connect to its own javascript -->
+        <script src="/js/index.js"></script>
