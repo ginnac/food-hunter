@@ -2,11 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-       
+
         <h2>Food Hunter</h2>
 
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
+
             <label for="eaters">Number of eaters</label>
             <input type="number" id="eaters" class="form-control" aria-describedby="eaters" placeholder="Enter Number of Eaters">
           </div>
@@ -22,10 +23,32 @@
             <label for="zipcode">Zip Code</label>
             <textarea class="form-control" id="zipcode" aria-describedby="zipcode" placeholder="Enter Zipcode"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <div> 
+            <button type = "button" class = "btn btn-lg btn-primary">
+            <a href="/survey/:id">
+              <h4>
+                <span class= "glyphicon glyphicon-list-alt">
+                </span>
+                Go to Survey
+              </h4>
+            </a>
+            </button>
+
+          </div>
         </form>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- connect to its own javascript -->
-<script src="/js/index.js"></script>
+
+
+<footer class= "footer">
+  <div class= "container">
+    <p>
+      <a href="https://github.com/ginnac/food-hunter">Github Repo</a>
+    </p>
+  </div>
+</footer>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- connect to its own javascript -->
+        <script src="/js/index.js"></script>
+
