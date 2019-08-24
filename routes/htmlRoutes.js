@@ -18,7 +18,7 @@ module.exports = function(app) {
 
    // Load example page and pass in an example by id
    app.get("/restaurant/:id", function(req, res) {
-    db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(deRestaurants) {
+    db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(dbRestaurants) {
       res.render("restaurant", {
         restaurants: dbRestaurants,
       });
