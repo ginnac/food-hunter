@@ -1,8 +1,10 @@
 {
   "development": {
-    "username": "",
-    "password": "",
-    "database": "fh_db",
+    "username": "root",
+    
+    "password": "root",
+    "database": "db",
+    
     "host": "localhost",
     "dialect": "mysql"
   },
