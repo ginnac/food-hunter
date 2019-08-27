@@ -23,3 +23,28 @@
   border-color: #2e6da4;
 
 }
+
+.col-md-10{
+  margin: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+div{
+  display: block;
+}
+
+.col-md-10{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.chosen-select{
+  display: block;
+  width: 100%;
+  height: 34px;
+   
+}

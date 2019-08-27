@@ -1,19 +1,27 @@
 <!--- need to us modal to use checkbox, 3 questions with is own checkboxes -->
 
 <div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
+  <div class="row survey"> 
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="panel-title">Survey Questions</h3>
+      {{!-- <div class="col-8 offset-2">
       <div class="card mt-4">
-        <div class="card-body">
-          <h2 class="card-title">Survey Questions</h2>
-          <hr>
+        <div class="card-body"> --}}
+          {{!-- <h2 class="card-title">Survey Questions</h2>
+          </div>
+          <hr> --}}
+          </div>
           <h3 id = "eater-number">
-            <strong> Eater 1 </strong>
+            <strong> Eater 1 </strong> 
           </h3>
-          <h4> 
+          <div class="row questions">
+            <div class="col-md-10"></div>
+          <h5> 
             <strong>What food type are you craving at the moment? </strong>
 
-          </h4>
+          </h5>
           <select class="chosen-select" id="q1">
             <option value>Select Option</option>
             <option value="American Cuisine">American Cuisine</option>
@@ -25,7 +33,8 @@
             <option value="Japenese Cuisine">Japenese Cuisine</option>
             <option value="Italian Cuisine">Italian Cuisine</option>
           </select>
-          
+          </div>
+          </div>
               {{!-- <div>
                 <b></b>
               </div>
@@ -34,11 +43,10 @@
               <div class="chosen-search">
                 <input type="text" autocomplete="off">
               </div> --}}
-              
-            </div>
-          </div>
-          <h4>
+            <div class="col-md-10">
+          <h5>
             <strong>What's your current mood? </strong>
+            </h5>
             <select class="chosen-select" id="q2">
               <option value>Select Option</option>
               <option value="happy">happy</option>
@@ -46,6 +54,7 @@
               <option value="adventurous">adventurous</option>
               <option value="hangry">hangry</option>
             </select>
+             </div>
             {{!-- <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q2_chosen">
               <a class="chosen-single chosen-default">
                 <span>Select an Option</span>
@@ -63,17 +72,17 @@
                   <li class="active-results" data-option-array-index="adventurous" style> adventurous</li>
                   <li class="active-results" data-option-array-index="hangry" style> hangry</li> --}}
                 {{!-- </ul> --}}
-              </div>
-            </div>
-          </h4>
-          <h4>
+              <div class="col-md-10">
+          <h5>
             <strong> How much would you like to spend on your meal? </strong>
+            </h5>
             <select class="chosen-select" id="q3">
               <option value>Select Option</option>
-              <option value="5-10">5-10</option>
-              <option value="10-20">10-20</option>
-              <option value="30">30</option>
+              <option value="5-10">$5-10</option>
+              <option value="10-20">$10-20</option>
+              <option value="30">$30</option>
             </select>
+            </div>
             {{!-- <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q3_chosen">
               <a class="chosen-single chosen-default">
                 <span>Select an Option</span>
@@ -92,7 +101,7 @@
                 </ul>
               </div>
             </div> --}}
-          </h4>
+        
           {{!-- Sumbit Button --}}
           <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
             <i class="fa fa-check-circle" aria-hidden="true">
@@ -107,26 +116,16 @@
           </button>
 
           <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenterc" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
+          <div id="resultsModals" class="modal fade" role="dialog" style="display: none;">
+            <div class="modal-dialog">
+
+          <!--Modal Content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              
             </div>
           </div>
+          
           {{!-- <p>
             <strong>ID</strong>: {{example.id}}</p>
           <p>
