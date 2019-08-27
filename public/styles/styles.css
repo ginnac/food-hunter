@@ -18,20 +18,22 @@ h1 {
   padding: 18px; 
 }
 .row {
+    padding-top: 10px;
     margin: auto;
     z-index: 10;
     position: relative;
-    /* clear: both; */
+    right: 30px;
+    clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
   .row h2 {
     text-align: left;
-    padding-top: 60px;
+    padding-top: 70px;
     margin-bottom: 0px;
-    font-size: 90px;
+    font-size: 95px;
     line-height: 1.5;
-    font-weight: 300;
+    font-weight: 230;
     font-family: "Kaushan Script", cursive !important;
     display: block;
     margin-block-start: 0.67em;
@@ -41,7 +43,8 @@ h1 {
   }
 
   #home {
-    padding: 80px;
+    padding-top: 08%;
+    
   }
 
    /* .tab-content h3 {
