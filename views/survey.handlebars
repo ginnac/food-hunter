@@ -1,24 +1,18 @@
 <!--- need to us modal to use checkbox, 3 questions with is own checkboxes -->
 
-<div class="container">
-  <div class="row survey"> 
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-      <h3 class="panel-title">Survey Questions</h3>
-      {{!-- <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body"> --}}
-          {{!-- <h2 class="card-title">Survey Questions</h2>
-          </div>
-          <hr> --}}
-          </div>
-          <h3 id = "eater-number">
-            <strong> Eater 1 </strong> 
-          </h3>
-          <div class="row questions">
-            <div class="col-md-10"></div>
-          <h5> 
+<div class="container-fluid">
+  <div class="row survey">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Survey Questions</h3>
+        </div>
+        <h3 id="eater-number">
+          <strong> Eater 1 </strong>
+        </h3>
+        <div class="row questions">
+          <div class="col-md-10"></div>
+          <h5>
             <strong>What food type are you craving at the moment? </strong>
 
           </h5>
@@ -33,111 +27,65 @@
             <option value="Japenese Cuisine">Japenese Cuisine</option>
             <option value="Italian Cuisine">Italian Cuisine</option>
           </select>
-          </div>
-          </div>
-              {{!-- <div>
-                <b></b>
-              </div>
-            </a> --}}
-            {{!-- <div class="chosen-drop">
-              <div class="chosen-search">
-                <input type="text" autocomplete="off">
-              </div> --}}
-            <div class="col-md-10">
-          <h5>
-            <strong>What's your current mood? </strong>
-            </h5>
-            <select class="chosen-select" id="q2">
-              <option value>Select Option</option>
-              <option value="happy">happy</option>
-              <option value="sleepy">sleepy</option>
-              <option value="adventurous">adventurous</option>
-              <option value="hangry">hangry</option>
-            </select>
-             </div>
-            {{!-- <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q2_chosen">
-              <a class="chosen-single chosen-default">
-                <span>Select an Option</span>
-                <div>
-                  <b></b>
-                </div>
-              </a>
-              <div class="chosen-drop">
-                <div class="chosen-search">
-                  <input type="text" autocomplete="off">
-                </div>
-                <ul class="chosen-results">
-                  <li class="active-results" data-option-array-index="happy" style> happy</li>
-                  <li class="active-results" data-option-array-index="sleepy" style> sleepy</li>
-                  <li class="active-results" data-option-array-index="adventurous" style> adventurous</li>
-                  <li class="active-results" data-option-array-index="hangry" style> hangry</li> --}}
-                {{!-- </ul> --}}
-              <div class="col-md-10">
-          <h5>
-            <strong> How much would you like to spend on your meal? </strong>
-            </h5>
-            <select class="chosen-select" id="q3">
-              <option value>Select Option</option>
-              <option value="5-10">$5-10</option>
-              <option value="10-20">$10-20</option>
-              <option value="30">$30</option>
-            </select>
-            </div>
-            {{!-- <div class="chosen-container chosen-container-single" style="width: 155px;" title id="q3_chosen">
-              <a class="chosen-single chosen-default">
-                <span>Select an Option</span>
-                <div>
-                  <b></b>
-                </div>
-              </a>
-              <div class="chosen-drop">
-                <div class="chosen-search">
-                  <input type="text" autocomplete="off">
-                </div>
-                <ul class="chosen-results">
-                  <li class="active-results" data-option-array-index="5-10" style> 5-10</li>
-                  <li class="active-results" data-option-array-index="10-20" style> 10-20</li>
-                  <li class="active-results" data-option-array-index="30" style> 30</li>
-                </ul>
-              </div>
-            </div> --}}
-        
-          {{!-- Sumbit Button --}}
-          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
-            <i class="fa fa-check-circle" aria-hidden="true">
-            
-            </i>
-            Submit
-          </button>
-          <hr>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Launch demo modal
-          </button>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <h5>
+          <strong>What's your current mood? </strong>
+        </h5>
+        <select class="chosen-select" id="q2">
+          <option value>Select Option</option>
+          <option value="happy">happy</option>
+          <option value="sleepy">sleepy</option>
+          <option value="adventurous">adventurous</option>
+          <option value="hangry">hangry</option>
+        </select>
+      </div>
+      <div class="col-md-10">
+        <h5>
+          <strong> How much would you like to spend on your meal? </strong>
+        </h5>
+        <select class="chosen-select" id="q3">
+          <option value>Select Option</option>
+          <option value="5-10">$5-10</option>
+          <option value="10-20">$10-20</option>
+          <option value="30">$30</option>
+        </select>
+      </div>
 
-          <!-- Modal -->
-          <div id="resultsModals" class="modal fade" role="dialog" style="display: none;">
-            <div class="modal-dialog">
+      {{!-- Sumbit Button --}}
+      <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"> Submit</button>
+      <hr>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
 
-          <!--Modal Content-->
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h1 id="modal_f">Test</h1>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
-          
-          {{!-- <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a> --}}
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 
 <!-- connect to its own javascript -->
