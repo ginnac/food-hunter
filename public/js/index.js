@@ -1,99 +1,101 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $experienceEaters = $("#eaters");
+var $experienceGroup = $("#group");
+var $experienceEmail = $("#email");
+var $experienceZip = $("#zipcode");
+var $submitBtn = $("#groupSubmit");
+var theExperience;
+var groupname;
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  //saving index questions to our database through ur API route
+  saveExperience: function(experience) {
+    
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "/api/groups",
+      data: JSON.stringify(experience)
     });
   },
-  getExamples: function() {
+  // in case we need to get API experiences (API objects)
+  getExperiences: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/groups",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+
+  // in case we need to let the user delete his/her experiences from database
+  deleteExperiences: function(groupName) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/experiences/" + groupName,
       type: "DELETE"
     });
-  }
-};
+  },
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
+  getOneExperience: function(groupName) {
+    return $.ajax({
+      url: "api/experiences/" + groupName,
+      type: "GET"
     });
+  },
+},
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+// new function below is called whenever we submit a new experience through the database
+// Save the new experience to the db and refresh the list
+submitGroup = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var newExperience = {
+    number_eaters: $experienceEaters.val().trim(),
+    group_name: $experienceGroup.val().trim(),
+    email: $experienceEmail.val().trim(),
+    zipcode: $experienceZip.val().trim(),  
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  
+  
+  //validation, all fields have been entered ----
+  if (!(newExperience.number_eaters && newExperience.group_name && newExperience.email && newExperience.zipcode)) {
+    alert("You must filled all the fields");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  groupname = newExperience.group_name;
+
+  //validation, unique group name ---
+  API.getOneExperience(groupname).then(function(data){
+        
+        console.log("Group name is taken", data);
+       theExperience = data;
+        if (theExperience) {
+          alert("Sorry that group name is taken, use a diferent one!");
+        }
+        else {
+          //if my group name is NOT taken then we can save the experience
+          API.saveExperience(newExperience).then(function() {
+            $experienceEaters.val("");
+            $experienceGroup.val("");
+            $experienceEmail.val("");
+            $experienceZip.val("");
+        
+            //work on id; 
+        
+            window.location.href = "/survey/:groupName";
+        
+          
+          });
+        }
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+// // Add event listeners to the submit button
+$submitBtn.on("click", submitGroup);
 
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
