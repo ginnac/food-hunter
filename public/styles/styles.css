@@ -2,6 +2,62 @@
   line-height: 2.5;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+body {
+background-color: rgb(210, 221, 205);
+font-family: 'Pacifico', cursive;
+font-size: 18px;
+line-height: 34px;
+color: #ffffff;
+background-image: url('https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg')
+}
+
+h1 {
+  font-size: 24px;
+  padding: 18px; 
+}
+.row {
+    margin: auto;
+    z-index: 10;
+    position: relative;
+    clear: both;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+  }
+  .row h2 {
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 50px;
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: "Kaushan Script", cursive !important;
+  }
+
+   .tab-content h3 {
+    color: #fff;
+  }
+   .tab-content label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+   .tab-content .tab-content-inner {
+    display: none;
+  }
+   .tab-content .tab-content-inner.active {
+    display: block;
+  }
+   .tab-content .form-control {
+    color: #fff !important;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+
+
+
+
+
+
+
 .btn-group-lg>.btn, .btn-large{
   padding : 10px 16px;
   padding-top: 10px;
