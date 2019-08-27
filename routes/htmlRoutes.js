@@ -1,3 +1,4 @@
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -16,16 +17,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/survey/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("survey", {
-        example: dbExample,
-      });
-    });
-  });
-   
-  // Load example page and pass in an example by id
+   // Load restaurant page and pass in as the result
    app.get("/restaurant/:id", function(req, res) {
     db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(dbRestaurants) {
       res.render("restaurant", {
