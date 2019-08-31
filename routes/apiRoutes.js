@@ -28,12 +28,15 @@ module.exports = function(app) {
 //get on experience by the group name
 
 app.get("/api/experiences/:groupName", function(req,res){
+  console.log(req.params.groupName);
   db.Experiences.findOne({
     where: {
       group_name: req.params.groupName
     },
   }).then(function(dbExperiences){
+    
     res.json(dbExperiences);
+    
   });
 });
 

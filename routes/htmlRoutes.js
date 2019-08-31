@@ -1,3 +1,4 @@
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -8,8 +9,8 @@ module.exports = function(app) {
   });
 
   // Load survey page and until cover all number of eaters
-  app.get("/survey/:id", function(req, res) {
-    db.Experiences.findOne({ where: { id: req.params.id } }).then(function(dbExperiences) {
+  app.get("/survey/:groupName", function(req, res) {
+    db.Experiences.findOne({ where: { group_name: req.params.groupName } }).then(function(dbExperiences) {
       res.render("survey", {
         experiences: dbExperiences,
       });
