@@ -152,7 +152,7 @@ function displaySurvey(numberEaters, numEater) {
       var key = answers[i].answ3;
       var mood = answers[i].answ2;
       var restType = answers[i].answ1;
-      
+
     //to get the restaurant price level------
       //push to countsPrice...
       countsPrice[key] = 1 + (countsPrice[key] || 0);
@@ -182,8 +182,12 @@ function displaySurvey(numberEaters, numEater) {
     var priceWinner = priceArr[0][0];
     console.log("Group Budget is " + priceWinner)
 
-  //-------I need to add validation in case there is a match of answers-------;  
-    // console.log(priceArr[0][0] +  " and " + priceArr[0][1]);
+  //adding validation in case there is a match of answers-------;  
+    if (priceArr[0][0] === priceArr[0][1]){
+      priceWinnerIndex = Math.floor(Math.random() * priceArr.length + 1);
+      priceWinner = priceWinner[priceWinnerIndex][0];
+      console.log("random price " + priceWinner);
+    }
 
   //restaurant logic.....get the restaurant logic
   var restaurantArr = [];
@@ -199,13 +203,16 @@ function displaySurvey(numberEaters, numEater) {
 
   console.log("Type of restaurant chose " + restaurantChosen + " ")
 
-  //we need to store the budget and restaurant type;
+  ////we need to store the budget and restaurant type in the experience table;----to do-----////
 
-  //display the next html - restautants
 
   //ajax to call an API for google maps
+ 
 
-  //push data to our restaurant table to create our own API 
+
+    //push data to our restaurant table to create our own API 
+
+  //display the next html - restautants
 
   //id of restaurant will have to be coming from our resturant table
     var id = 1;
