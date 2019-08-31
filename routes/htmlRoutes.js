@@ -18,7 +18,7 @@ module.exports = function(app) {
   });
 
    // Load restaurant page and pass in as the result
-   app.get("/restaurant/:id", function(req, res) {
+   app.get("/restaurant/:groupname/:id", function(req, res) {
     db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(dbRestaurants) {
       res.render("restaurant", {
         restaurants: dbRestaurants,

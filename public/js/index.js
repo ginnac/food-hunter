@@ -1,3 +1,6 @@
+//clear local storage in case there is some values saved from playing games from previous sessions
+localStorage.clear();
+
 // Get references to page elements
 var $experienceEaters = $("#eaters");
 var $experienceGroup = $("#group");
