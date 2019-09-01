@@ -2,6 +2,8 @@
 var locationArr = location.pathname.split("/");
 var groupname = locationArr[2];
 var numEater = 1;
+$("#email-button").hide();
+$("#survey-page").show();
 
 //we need to display survey data times === number of eaters 
 var $eaterNumber = $("#eater-number");
@@ -203,12 +205,35 @@ function displaySurvey(numberEaters, numEater) {
 
   console.log("Type of restaurant chose " + restaurantChosen + " ")
 
+  $("#survey-page").hide();
+  $("#email-button").show();
+
+
   ////we need to store the budget and restaurant type in the experience table;----to do-----////
 
 
   //ajax to call an API for google maps
- 
 
+  // function activateRestaurantSearch(){
+  //   var input = restaurantChosen;
+
+  // }
+
+  
+
+  //var url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk";
+  //https://maps.googleapis.com/maps/api/place/textsearch/xml?query=restaurants+in+Sydney&key=YOUR_API_KEY
+
+  //https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=YOUR_API_KEY
+ 
+  // $.ajax({
+  //   url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+ restaurantChosen +  "&key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk",
+  //   type: "GET",
+  //   dataType: "JSONP",
+  //   success: function(data) {
+  //     console.log(data);
+  //   }
+  // });
 
     //push data to our restaurant table to create our own API 
 
@@ -217,7 +242,7 @@ function displaySurvey(numberEaters, numEater) {
   //id of restaurant will have to be coming from our resturant table
     var id = 1;
 
-    window.location.href = "/restaurant/" + groupname + "/" +id ;
+   // window.location.href = "/restaurant/" + groupname + "/" +id ;
 
     console.log("page loaded");
 
