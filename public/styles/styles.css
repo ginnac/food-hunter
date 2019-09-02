@@ -105,3 +105,8 @@ div{
   height: 34px;
    
 }
+
+#map{
+  height:500px;
+  width:500px;
+}
