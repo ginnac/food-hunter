@@ -17,6 +17,17 @@ module.exports = function(app) {
     });
   });
 
+
+  // Load survey page and until cover all number of eaters
+  app.get("/restaurant/:groupName", function(req, res) {
+    db.Experiences.findOne({ where: { group_name: req.params.groupName } }).then(function(dbExperiences) {
+      res.render("restaurant", {
+        experiences: dbExperiences,
+      });
+    });
+  });
+
+
    // Load restaurant page and pass in as the result
    app.get("/restaurant/:groupname/:id", function(req, res) {
     db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(dbRestaurants) {

@@ -2,35 +2,35 @@
 var locationArr = location.pathname.split("/");
 var groupname = locationArr[2];
 var numEater = 1;
-$("#email-button").hide();
-$("#survey-page").show();
+
 
 //we need to display survey data times === number of eaters 
 var $eaterNumber = $("#eater-number");
 var numberEaters;
 var $buttonSave = $("#buttonSave");
-var staticEaterNumber;
 var answers = [];
+var zipcode;
 
 
 //getting number stored in local storage
 numEater = localStorage.getItem("number");
-if (numEater === null){
+if (numEater === null) {
   $("#eater-number").text("Eater #1");
-  numEater =1;
+  numEater = 1;
 }
 
-else{
+else {
   $("#eater-number").text("Eater #" + numEater);
 }
 
+
 //getting stored answers array
 var retreiveAnswersArray = localStorage.getItem("answersArr");
-if (retreiveAnswersArray === null){
+if (retreiveAnswersArray === null) {
   answers = [];
 }
 
-else{
+else {
   answers = JSON.parse(retreiveAnswersArray);
   console.log(answers.length);
 }
@@ -41,7 +41,7 @@ console.log(groupname);
 
 var API = {
   //ajax call
- // to get the eater number from database - getEaterNumber
+  // to get the eater number from database - getEaterNumber
   getEaterNumber: function (groupName) {
     return $.ajax({
       url: "/api/experiences/" + groupName,
@@ -50,15 +50,15 @@ var API = {
   },
 }
 
-//function where i will call the getEaterNumber callback function and then I will 
+//function where i will call the getEaterNumber callback function and get the zip code
 API.getEaterNumber(groupname).then(function (data) {
-  numberEaters=localStorage.getItem("number-of-eater");
-  if (numberEaters===null){
-    numberEaters = data.number_eaters;
-  staticEaterNumber = data.number_eaters;
+  numberEaters = localStorage.getItem("number-of-eater");
+  if (numberEaters === null) {
+    numberEaters = data.number_eaters; 
   }
+  zipcode = data.zipcode;
 
-  displaySurvey(numberEaters, numEater);
+  displaySurvey(numberEaters, numEater,zipcode);
 
 });
 
@@ -66,12 +66,12 @@ API.getEaterNumber(groupname).then(function (data) {
 
 
 //function to redeem survey page
-function displaySurvey(numberEaters, numEater) {
+function displaySurvey(numberEaters, numEater, zipcode) {
 
 
   if (numberEaters > 0) {
 
-    //when clicking submit button, used off and on to prevent duplicates
+    //when clicking submit button, used off.on to prevent duplicates
     $buttonSave.off().on("click", function (event) {
       //clear local storage
       localStorage.clear();
@@ -91,7 +91,7 @@ function displaySurvey(numberEaters, numEater) {
       var q2 = $("#q2").val();
       var q3 = $("#q3").val();
 
-      //alerting user to enter all values
+    ////alerting user to enter all values
       if (q1 === "" || q2 === "" || q3 === "") {
         alert("Please select a choice for all the questions!");
       }
@@ -117,13 +117,13 @@ function displaySurvey(numberEaters, numEater) {
         $("#q2").val("");
         $("#q3").val("");
 
-       //make sure it doesnt happen when have are done taking the input from group members 
+        //make sure it doesnt happen when have are done taking the input from group members 
         if (numberEaters !== 0) {
-         // console.log(numEater);
+          // console.log(numEater);
           numEater++;
           localStorage.setItem("number", numEater);
           numEater = localStorage.getItem("number");
-         // console.log(numEater);
+          // console.log(numEater);
           $eaterNumber.text("Eater #" + numEater + "")
         }
 
@@ -132,21 +132,22 @@ function displaySurvey(numberEaters, numEater) {
       //used to prevent reading empty values for new eater, still need this to happen when number of eaters  === 0 regardless if there is no answers...
       if (q1 !== "" && q2 !== "" && q3 !== "" || numberEaters === 0) {
         //call this function again;
-        displaySurvey(numberEaters, numEater);
-
+        displaySurvey(numberEaters, numEater,zipcode);
       }
-
-
     });
 
   }
 
+  
+  
+  //if all eaters have taken the survey already....lets do some logic to calculate the type of restaurant and the price level to issue response....
   else {
-   localStorage.clear();
-  //do logic to get the restaurant to be displayed....
-    //objects to help me count the 
+    localStorage.clear();
+
+    //do logic to get the restaurant to be displayed....
+    //objects to help me count how many votes we have per each restaurant
     var countsPrice = {};
-    var countRestaurantType ={}
+    var countRestaurantType = {}
 
     //do a for loop through the array answers, inside the objects userAnswers; 
     for (var i = 0; i < answers.length; i++) {
@@ -155,18 +156,18 @@ function displaySurvey(numberEaters, numEater) {
       var mood = answers[i].answ2;
       var restType = answers[i].answ1;
 
-    //to get the restaurant price level------
+      //to get the restaurant price level------
       //push to countsPrice...
       countsPrice[key] = 1 + (countsPrice[key] || 0);
 
       //according to user's mood we will push value x1, x2, or x3 
-      if (mood === "happy" || mood === "adventurous"){
+      if (mood === "happy" || mood === "adventurous") {
         countRestaurantType[restType] = 2 + (countRestaurantType[restType] || 0);
       }
-      else if (mood === "hangry" ){
+      else if (mood === "hangry") {
         countRestaurantType[restType] = 3 + (countRestaurantType[restType] || 0);
       }
-      else if(mood==="sleepy"){
+      else if (mood === "sleepy") {
         countRestaurantType[restType] = 1 + (countRestaurantType[restType] || 0);
       }
     }
@@ -184,70 +185,85 @@ function displaySurvey(numberEaters, numEater) {
     var priceWinner = priceArr[0][0];
     console.log("Group Budget is " + priceWinner)
 
-  //adding validation in case there is a match of answers-------;  
-    if (priceArr[0][0] === priceArr[0][1]){
+    //adding validation in case there is a match of answers-------;  
+    if (priceArr[0][0] === priceArr[0][1]) {
       priceWinnerIndex = Math.floor(Math.random() * priceArr.length + 1);
       priceWinner = priceWinner[priceWinnerIndex][0];
       console.log("random price " + priceWinner);
     }
 
-  //restaurant logic.....get the restaurant logic
-  var restaurantArr = [];
-  for (var groupRestaurant in countRestaurantType) {
-    restaurantArr.push([groupRestaurant, countRestaurantType[groupRestaurant]]);
-  }
+    //in places library google API price rank is between 0-4; we will use that rank to classify price winner
+    if (priceWinner==="5-10"){
+    var  priceWinnerMin = 0
+    var   priceWinnerMax = 1
+     //local storing the budget
+    localStorage.setItem("priceMin", priceWinnerMin);
+    localStorage.setItem("priceMax", priceWinnerMax);
+    }
 
-  restaurantArr.sort(function (a, b) {
-    return b[1] - a[1];
-  });
+    else if(priceWinner==="10-20"){
+    var   priceWinnerMin = 1
+    var   priceWinnerMax = 3
+    //local storing the budget
+    localStorage.setItem("priceMin", priceWinnerMin);
+    localStorage.setItem("priceMax", priceWinnerMax);
+    }
 
-  var restaurantChosen = restaurantArr[0][0];
+    else if(priceWinner==="30"){
+    var  priceWinnerMin = 3
+    var   priceWinnerMax = 4
+    //local storing the budget
+    localStorage.setItem("priceMin", priceWinnerMin);
+    localStorage.setItem("priceMax", priceWinnerMax);
+    }
 
-  console.log("Type of restaurant chose " + restaurantChosen + " ")
-
-  $("#survey-page").hide();
-  $("#email-button").show();
 
 
-  ////we need to store the budget and restaurant type in the experience table;----to do-----////
+    //restaurant logic.....get the restaurant logic
+    var restaurantArr = [];
+    for (var groupRestaurant in countRestaurantType) {
+      restaurantArr.push([groupRestaurant, countRestaurantType[groupRestaurant]]);
+    }
 
-  //ajax to call an API for google maps
+    restaurantArr.sort(function (a, b) {
+      return b[1] - a[1];
+    });
 
-  //push data to our restaurant table to create our own API 
+    var restaurantChosen = restaurantArr[0][0];
 
-  //display the next html - restautants
+    //local storing the restaurantChosen
+    localStorage.setItem("chosenRestaurant", restaurantChosen);
 
-  //id of restaurant will have to be coming from our resturant table
-    var id = 1;
+   
+   
+    //ajax to call an google geocode API ------// 
+      // need to find a way to make the key private besides just allowing it to my url in my dev google console settings----// 
+    var latitude;
+    var longitude;
 
-   window.location.href = "/restaurant/" + groupname + "/" +id ;
+    console.log(zipcode);
 
-    console.log("page loaded");
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/geocode/json?key=ADD_YOUR_KEY_HERE&components=postal_code:" + zipcode + "&sensor=false",
+      method: "POST",
+      success: function (data) {
+        console.log(data);
+        latitude = data.results[0].geometry.location.lat;
+        longitude = data.results[0].geometry.location.lng;
+        console.log(
+          "Lat = " + latitude + "- Long = " + longitude);
+        //store latitude and logitude to localStorage
+        localStorage.setItem("latitude", latitude);
+        localStorage.setItem("longitude", longitude);
+        
+        //display the next html - restautants
+        window.location.href = "/restaurant/" + groupname;
+        console.log("page loaded");
+      
+      }
+
+    });
 
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteExample(idToDelete).then(function() {
-//     refreshExamples();
-//   });
-// };
