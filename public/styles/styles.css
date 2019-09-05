@@ -3,16 +3,20 @@
 .list-group-item {
   line-height: 2.5;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-
+/* main/index page */
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap');
+/* <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap" rel="stylesheet"> */
 body {
 background-color: rgb(210, 221, 205);
 font-family: 'Pacifico', cursive;
 font-size: 18px;
 line-height: 34px;
 color: #ffffff;
-background-image: url('https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg')
+background-image: url('https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg');
+background-repeat: repeat-x;
+background-size: 1000px 1000px;
+
+
 }
 
 h1 {
@@ -20,23 +24,38 @@ h1 {
   padding: 18px; 
 }
 .row {
+    padding-top: 10px;
     margin: auto;
     z-index: 10;
     position: relative;
-    clear: both;
+    right: 30px;
+    clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
   .row h2 {
-    text-align: center;
+    text-align: left;
+    padding-top: 70px;
     margin-bottom: 0px;
-    font-size: 50px;
+    font-size: 95px;
     line-height: 1.5;
-    font-weight: 300;
+    font-weight: 230;
     font-family: "Kaushan Script", cursive !important;
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
 
-   .tab-content h3 {
+  #home {
+    padding-top: 08%;
+    
+  }
+
+  
+
+   /* .tab-content h3 {
     color: #fff;
   }
    .tab-content label {
@@ -51,7 +70,7 @@ h1 {
    .tab-content .form-control {
     color: #fff !important;
     border: 2px solid rgba(255, 255, 255, 0.2);
-  }
+  } */
   
 
 
@@ -60,7 +79,7 @@ h1 {
 
 /* survey page */
 
-.btn-group-lg>.btn, .btn-large{
+/* .btn-group-lg>.btn, .btn-large{
   padding : 10px 16px;
   padding-top: 10px;
   padding-right: 16px;
@@ -80,7 +99,10 @@ h1 {
   background-color: #337ab7;
   border-color: #2e6da4;
 
-}
+
+} */
+
+
 
 
 .col-md-10{
@@ -108,9 +130,33 @@ div{
    
 }
 
-/* restuarant page */
+#map{
+  height:500px;
+  width:500px;
+}
 
-.card-columns{
-  padding: 80px;
-  margin: 20px;
+
+.row-survey{
+  padding: 15px;
+  margin: 10px;
+ box-sizing: border-box;
+ border: black;
+
+}
+
+.col-md-10{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+}
+
+.panel-body{
+  padding: 15px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   padding-left: 15px;
+   padding-right: 15px;
+  
 }

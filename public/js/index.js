@@ -1,3 +1,6 @@
+//clear local storage in case there is some values saved from playing games from previous sessions
+localStorage.clear();
+
 // Get references to page elements
 var $experienceEaters = $("#eaters");
 var $experienceGroup = $("#group");
@@ -25,7 +28,7 @@ var API = {
   // in case we need to get API experiences (API objects)
   getExperiences: function () {
     return $.ajax({
-      url: "api/groups",
+      url: "/api/groups",
       type: "GET"
     });
   },
@@ -33,14 +36,14 @@ var API = {
   // in case we need to let the user delete his/her experiences from database
   deleteExperiences: function (groupName) {
     return $.ajax({
-      url: "api/experiences/" + groupName,
+      url: "/api/experiences/" + groupName,
       type: "DELETE"
     });
   },
 
   getOneExperience: function (groupName) {
     return $.ajax({
-      url: "api/experiences/" + groupName,
+      url: "/api/experiences/" + groupName,
       type: "GET"
     });
   },
