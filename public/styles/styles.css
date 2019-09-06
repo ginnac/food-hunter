@@ -5,13 +5,13 @@
 }
 /* main/index page */
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap');
-/* <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap" rel="stylesheet"> */
+
 body {
 background-color: rgb(210, 221, 205);
 font-family: 'Pacifico', cursive;
 font-size: 18px;
 line-height: 34px;
-color: #ffffff;
+color: #f3f0e0;
 background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Flongfordpc.com%2Fimages%2Fbackgrond-clipart-food-2.jpg');
 background-repeat: repeat-x;
 background-size: 1000px 1000px;
@@ -24,7 +24,7 @@ h1 {
   padding: 18px; 
 }
 .row {
-    padding-top: 10px;
+    padding-top: 0.5px;
     margin: auto;
     z-index: 10;
     position: fixed;
@@ -67,6 +67,11 @@ h1 {
   .form-group {
     font-size: 25px;
   } 
+
+  #groupSubmit {
+    background-color: rgb(223, 188, 113);
+    border-color: black;
+  }
   
 /* @media (max-width: 575.98px) { 
   #home {
@@ -176,4 +181,24 @@ div{
   margin-inline-end: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+/* Survey.hadlebars */
+
+.row-questions {
+  padding-top: 10px;
+  margin: auto;
+  z-index: 40;
+  position: fixed;
+  top: 40px;
+  bottom: 40px;
+  left: 30px;
+  right: 30px;
+  clear: both; 
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+}
+
+#buttonSave {
+  background-color: rgb(223, 188, 113);
+  border-color: black; 
 }
