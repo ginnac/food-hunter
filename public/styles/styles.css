@@ -89,7 +89,7 @@ div{
   display: block;
 }
 
-.col-md-10{
+ .col-md-10{
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -109,27 +109,38 @@ div{
 }
 
 
-.row-survey{
+ .row-survey{
   padding: 15px;
-  margin: 10px;
+  margin: 50px;
  box-sizing: border-box;
  border: black;
 
-}
+} 
 
-.col-md-10{
+ .col-md-10{
   margin-block-start: 1.33em;
   margin-block-end: 1.33em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-
-}
+  margin-left: auto;
+  margin-right: auto;
+  
+} 
 
 .panel-body{
-  padding: 15px;
-   padding-top: 15px;
-   padding-bottom: 15px;
-   padding-left: 15px;
-   padding-right: 15px;
+  padding: 50px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   padding-left: 50px;
+   padding-right: 50px;
   
+}
+
+.row questions{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
