@@ -1,4 +1,22 @@
 
+ //id of restaurant will have to be coming from our resturant table
+ $("#results").hide();
+ $("#reset-game").hide();
+ $("#email-button").show();
+
+ //when clicking on results id, then send email and show resolution
+ $("#results").on("click", function(event){
+    //send email to user
+
+    //discover results..
+    event.preventDefault();
+    $("#results").show();
+    $("#email-button").hide();
+    $("#reset-game").hide();
+
+ });
+
+
  //when clicking on reset game
  $("#reset-game").on("click", function(event){
    event.preventDefault();
@@ -14,8 +32,6 @@ var priceMax;
 var chosenRestaurant;
 var allResponses = [];
 var chosenResponses = [];
-var groupChosenRestaurant;
-var groupChosenRestaurantIndex;
 
 latitude = localStorage.getItem("latitude");
 longitude = localStorage.getItem("longitude");
@@ -35,7 +51,7 @@ function loadScript(src,callback){
  }
  
 //team please create your own key with google maps API; message me if you need help with that!! :)
- loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
+ loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDM07rWKSpGs6eZ788blx8FNXQI9SoxsZE&libraries=places&callback=initialize', 
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
@@ -102,19 +118,9 @@ function loadScript(src,callback){
           for (var i = 0; i<results.length;i++){
               markers.push(createMarker(results[i]));
               allResponses.push(results[i]);
-              console.log(allResponses);
-              
+              console.log(results[i]);
+              //need to do math random to get random response
           }
-
-          //need to do math random to get random responses (3 responses the most, and then 
-          groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
-          console.log(groupChosenRestaurantIndex);
-          groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
-          console.log(groupChosenRestaurant);
-          $("#res-name").text(groupChosenRestaurant.name);
-          $("#res-data").text(groupChosenRestaurant.formatted_address);
-
-          console.log(groupChosenRestaurant);
       }
   }
 
@@ -139,65 +145,6 @@ function loadScript(src,callback){
       }
       markers =[]
   }
-
-
-
-
-  //function in case we dont get results: 
-
-//   function defaultInitialize(){  
-//     var chosenRestaurant = "restaurant"
-//     var center = new google.maps.LatLng(latitude, longitude);
-//     map = new google.maps.Map(document.getElementById("map_canvas"),{
-//         center:center,
-//         zoom:13,
-//     });
-  
-  
-  
-//   //****change the query value for responses I get *****//    
-//    request = {
-//      location:center,
-//      //radius values is in meters
-//      radius:16090,
-//      query: chosenRestaurant,
-//      //price level values from 0 to 4
-//      maxPriceLevel: priceMax,
-//      minPriceLevel: priceMin,
-//      openNow: true,
-//     };
-  
-//     infowindow = new google.maps.InfoWindow();
-  
-//    ///  service = new google.maps.places.PlacesService(map);
-//    ///  service.nearbySearch(request, callback);
-  
-//    service = new google.maps.places.PlacesService(map);
-//    service.textSearch(request, callback);
-  
-//     //function to search anywhere in the map...
-//     //first parameter is element to tab on
-//     //second element is the event happening....
-//     google.maps.event.addListener(map, "rightclick" , function(event){
-//        map.setCenter(event.latLng);
-//        clearResults(markers);
-  
-//        var request = {
-//            location:event.latLng,
-//            radius: 16090,
-//            query: chosenRestaurant,
-//            openNow: true,
-//            maxPriceLevel: priceMax,
-//            minPriceLevel: priceMin,
-  
-//           // types:["restaurant"],
-//        };
-//        /// service.nearbySearch(request,callback);
-//        service.textSearch(request, callback);
-//     });
-  
-//     }
-
 
 
  //------------------------------------------------------------------------------------------------------------------------------------//

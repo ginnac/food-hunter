@@ -1,11 +1,12 @@
 
+
 /* welcome page */
 .list-group-item {
   line-height: 2.5;
 }
 /* main/index page */
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap');
-/* <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap" rel="stylesheet"> */
+/* <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap" rel="stylesheet"> */ 
 body {
 background-color: rgb(210, 221, 205);
 font-family: 'Pacifico', cursive;
@@ -73,6 +74,54 @@ h1 {
   } */
   
 
+#map{
+  height:500px;
+  width:500px;
+}
+
+
+ /* .row-survey{
+  padding: 15px;
+  margin: 50px;
+ box-sizing: border-box;
+ border: black;
+
+} 
+
+ .col-lg-10{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}  */
+
+/* .panel-body{
+  padding: 50px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   padding-left: 50px;
+   padding-right: 50px;
+  
+}
+
+.row questions{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* media queries */
+.wrapper{
+  width: 1024px;
+  margin: 40px auto;
+}
+
 div{
   display: block;
 }
@@ -90,14 +139,7 @@ div{
   height: 34px;
    
 } 
-
-#map{
-  height:500px;
-  width:500px;
-}
-
-
- .row-survey{
+.row-survey{
   padding: 15px;
   margin: 50px;
  box-sizing: border-box;
@@ -124,11 +166,19 @@ div{
   
 }
 
-.row questions{
+.row-questions{
   margin-block-start: 1.33em;
   margin-block-end: 1.33em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+@media screen and (max-width: 768px){
+  
+  .wrapper {
+    /* Box-model */
+    width: 100%;
+    padding: 20px;
+  }
 }
