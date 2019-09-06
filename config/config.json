@@ -5,21 +5,18 @@
     "password": "root",
     "database": "fh_db",
     "host": "localhost",
-    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "root",
+    "password": null,
     "database": "testdb",
     "host": "localhost",
-    "port": 3306,
     "dialect": "mysql",
     "logging": false
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql",
-    "port": 3306
+    "dialect": "mysql"
   }
 }
