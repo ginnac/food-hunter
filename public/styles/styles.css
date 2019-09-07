@@ -79,7 +79,7 @@ div{
   display: block;
 }
 
- .col-md-10{
+ .col-lg-10{
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -107,7 +107,7 @@ div{
 
 } 
 
- .col-md-10{
+ .col-lg-10{
   margin-block-start: 1.33em;
   margin-block-end: 1.33em;
   margin-inline-start: 0px;
