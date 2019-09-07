@@ -10,7 +10,8 @@ var numberEaters;
 var $buttonSave = $("#buttonSave");
 var answers = [];
 var zipcode;
-
+var currentEmail;
+var currentId;
 
 //getting number stored in local storage
 numEater = localStorage.getItem("number");
@@ -57,13 +58,11 @@ API.getEaterNumber(groupname).then(function (data) {
     numberEaters = data.number_eaters; 
   }
   zipcode = data.zipcode;
-
+  currentEmail = data.email;
+  currentId = data.id;
   displaySurvey(numberEaters, numEater,zipcode);
 
 });
-
-
-
 
 //function to redeem survey page
 function displaySurvey(numberEaters, numEater, zipcode) {
@@ -152,6 +151,13 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     var countRestaurantType = {}
 
     //do a for loop through the array answers, inside the objects userAnswers; 
+    $.post("/api/email/" + currentId + "/" + currentEmail)
+        .then(function (data) {
+            console.log("hit the route");
+            //go back to front page
+            window.location.href = "/";
+            console.log("hit the route after");
+        });
     for (var i = 0; i < answers.length; i++) {
       console.log(answers);
       var key = answers[i].answ3;
@@ -235,6 +241,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
     //local storing the restaurantChosen
     localStorage.setItem("chosenRestaurant", restaurantChosen);
+    localStorage.setItem("currentEmail",currentEmail);
 
    
    
@@ -246,7 +253,8 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     console.log(zipcode);
 
     $.ajax({
-      url: "https://maps.googleapis.com/maps/api/geocode/json?key=&components=postal_code:" + zipcode + "&sensor=false",
+      url: "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&components=postal_code:" + zipcode + "&sensor=false",
+
       method: "POST",
       success: function (data) {
         console.log(data);
@@ -257,8 +265,9 @@ function displaySurvey(numberEaters, numEater, zipcode) {
         //store latitude and logitude to localStorage
         localStorage.setItem("latitude", latitude);
         localStorage.setItem("longitude", longitude);
+
         localStorage.setItem("zipcode", zipcode);
-        
+
         //display the next html - restautants
         window.location.href = "/restaurant/" + groupname;
         console.log("page loaded");
@@ -268,5 +277,8 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     });
 
   }
+    // userEmail = localStorage.getItem("currentEmail")  
+    
+
 
 }
