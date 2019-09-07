@@ -35,7 +35,7 @@ function loadScript(src,callback){
  }
  
 //team please create your own key with google maps API; message me if you need help with that!! :)
- loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCtmvtrNe0IyrgPWkvzyjNdlPoER99nKto&libraries=places&callback=initialize', 
+ loadScript('https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initialize', 
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
