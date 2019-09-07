@@ -13,71 +13,64 @@
 
         </div>
         <div class="panel-body">
+          <div class="row-questions">
+            <div class="row-align-center">
+              <div class="col-md-10">
+                <h3 class="panel-title">Survey Questions</h3>
+                <br>
+                <h3 id="eater-number">
+                  <strong> Eater # </strong>
+                </h3>
+                <br>
 
+                <h5>
+                  <strong>What food type are you craving at the moment? </strong>
+                </h5>
+                <select class="chosen-select" id="q1">
+                  <option value>Select Option</option>
+                  <option value="american restaurant">American Cuisine</option>
+                  <option value="indian restaurant">Indian Cuisine</option>
+                  <option value="thai restaurant">Thai Cuisine</option>
+                  <option value="chinese restaurant">Chinese Cuisine</option>
+                  <option value="greek restaurant">Greek Cuisine</option>
+                  <option value="Mexican restaurant">Mexican Cuisine</option>
+                  <option value="sushi restaurant">Japanese Cuisine</option>
+                  <option value="italian restaurant">Italian Cuisine</option>
+                </select>
+              </div>
 
-          
-           <div class="row-questions"> 
+              <div class="col-md-10">
+                <h5>
+                  <strong>What's your current mood? </strong>
+                </h5>
+                <select class="chosen-select" id="q2">
+                  <option value>Select Option</option>
+                  <option value="happy">happy</option>
+                  <option value="sleepy">sleepy</option>
+                  <option value="adventurous">adventurous</option>
+                  <option value="hangry">hangry</option>
+                </select>
+              </div>
+              <div class="col-md-10">
+                <h5>
+                  <strong> How much would you like to spend on your meal? </strong>
+                </h5>
+                <select class="chosen-select" id="q3">
+                  <option value>Select Option</option>
+                  <option value="5-10">$5-10</option>
+                  <option value="10-20">$10-20</option>
+                  <option value="30">$30</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            {{!-- Sumbit Button --}}
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="buttonSave"> Submit</button>
+            <hr>
             
+            <!-- connect to its own javascript -->
+            <script type="text/javascript"
+              src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!-- connect to its own javascript -->
+            <script src="/js/survey.js"></script>
 
-
-              <div class="row-align-center">
-                <div class="col-md-10">
-                  <h3 class="panel-title">Survey Questions</h3>
-                  <br>
-                  <h3 id="eater-number">
-                    <strong> Eater # </strong>
-                  </h3>
-                  <br>
-
-                  <h5>
-                    <strong>What food type are you craving at the moment? </strong>
-                  </h5>
-                  <select class="chosen-select" id="q1">
-                    <option value>Select Option</option>
-                    <option value="american restaurant">American Cuisine</option>
-                    <option value="indian restaurant">Indian Cuisine</option>
-                    <option value="thai restaurant">Thai Cuisine</option>
-                    <option value="chinese restaurant">Chinese Cuisine</option>
-                    <option value="greek restaurant">Greek Cuisine</option>
-                    <option value="Mexican restaurant">Mexican Cuisine</option>
-                    <option value="sushi restaurant">Japanese Cuisine</option>
-                    <option value="italian restaurant">Italian Cuisine</option>
-                  </select>
-                </div>
-
-                <div class="col-md-10">
-                  
-
-
-          <h5>
-            <strong>What's your current mood? </strong>
-          </h5>
-          <select class="chosen-select" id="q2">
-            <option value>Select Option</option>
-            <option value="happy">happy</option>
-            <option value="sleepy">sleepy</option>
-            <option value="adventurous">adventurous</option>
-            <option value="hangry">hangry</option>
-          </select>
-        </div>
-        <div class="col-lg-10">
-          <h5>
-            <strong> How much would you like to spend on your meal? </strong>
-          </h5>
-          <select class="chosen-select" id="q3">
-            <option value>Select Option</option>
-            <option value="5-10">$5-10</option>
-            <option value="10-20">$10-20</option>
-            <option value="30">$30</option>
-          </select>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="buttonSave"> Submit</button>
-         <hr>
-      
-      </div>
-       
-      {{!-- Sumbit Button --}}
-      
-   
- 
