@@ -1,7 +1,7 @@
 var db = require("../models");
 var nodemailer = require('nodemailer');
 var userEmail;
-var groupId;
+var restaurantId;
 
 module.exports = function (app) {
   // Get all experiences
@@ -15,7 +15,7 @@ module.exports = function (app) {
   app.post("/api/email/:id/:email", function (req, res) {
     console.log(req.params.email);
     userEmail = req.params.email;
-    groupId = req.params.id;
+    restaurantId = req.params.id;
     console.log
     var transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -24,7 +24,7 @@ module.exports = function (app) {
         pass: 'food-hunter*'
       }
     });
-    var urlReview = "http://localhost:3003/get-review/" + groupId;
+    var urlReview = "http://localhost:3004/get-review/" + restaurantId;
     var mailOptions = {
       from: 'foodhunter.noreply@gmail.com',
       to: userEmail,
@@ -40,6 +40,8 @@ module.exports = function (app) {
       } else {
         console.log('Email sent: ' + info.response);
       }
+    });
+  });
 
 
   // Get photos url for 1 type fo food
@@ -56,6 +58,20 @@ module.exports = function (app) {
   });
     });
   });
+
+    // // Get photos url for 1 type fo food
+    // app.get("/api/restaurant/:id", function(req, res) {
+    //   db.Photos.findOne({
+    //     where: {
+    //     restaurant_type: req.params.chosenRestaurant
+    //     },
+    //   }).then(function(dbPhotos){
+        
+    //     res.json(dbPhotos);
+        
+    //   });
+    // });
+
 
   //find all photos
    app.get("/api/all-photos", function(req, res) {
@@ -133,6 +149,7 @@ app.get("/api/reviews/:zipcode/:restaurantType", function(req,res){
       zip_code: req.params.zipcode,
       kind_food:req.params.restaurantType
     },
+    include: [db.Reviews]
   }).then(function(dbRestaurants){
     
     res.json(dbRestaurants);

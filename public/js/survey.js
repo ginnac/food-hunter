@@ -151,13 +151,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     var countRestaurantType = {}
 
     //do a for loop through the array answers, inside the objects userAnswers; 
-    $.post("/api/email/" + currentId + "/" + currentEmail)
-        .then(function (data) {
-            console.log("hit the route");
-            //go back to front page
-            window.location.href = "/";
-            console.log("hit the route after");
-        });
+   
     for (var i = 0; i < answers.length; i++) {
       console.log(answers);
       var key = answers[i].answ3;
