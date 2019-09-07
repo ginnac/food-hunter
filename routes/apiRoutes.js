@@ -1,6 +1,7 @@
 var db = require("../models");
 var nodemailer = require('nodemailer');
 var userEmail;
+var groupId;
 
 module.exports = function (app) {
   // Get all experiences
@@ -10,23 +11,26 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/email/:email", function (req, res) {
-console.log(req.params.email);
+  app.post("/api/email/:id/:email", function (req, res) {
+    console.log(req.params.email);
     userEmail = req.params.email;
+    groupId = req.params.id;
+    console.log
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'foodhunter710@gmail.com',
+        user: 'foodhunter.noreply@gmail.com',
         pass: 'food-hunter*'
       }
     });
-
+    var urlReview = "http://localhost:3003/get-review/" + groupId;
     var mailOptions = {
-      from: 'foodhunter710@gmail.com',
+      from: 'foodhunter.noreply@gmail.com',
       to: userEmail,
-      subject: 'Please give us your opinion',
-      text: 'Thanks for use Food Hunter!',
-      html: '<p>Click <a href="http://www.google.com">here</a> to give us your review</p>'
+      subject: 'Food Hunter - How was your exprerience?',
+      text: 'Thanks for used Food Hunter!',
+      html: '<p>Click <a href="' + urlReview + '">here</a> to give us your review</p>'
+      // html: '<p>Click <a href="http://localhost:3003/get-review/' + groupId + ">here</a> to give us your review</p>"
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -38,6 +42,8 @@ console.log(req.params.email);
     });
   });
 
+
+
   // Create a new expereince
   app.post("/api/groups", function (req, res) {
     console.log(req.body);
@@ -45,6 +51,14 @@ console.log(req.params.email);
       res.json(dbExperiences);
     });
   });
+
+  // PUT route for updating posts
+  app.post("/api/review/:id", function (req, res) {
+    db.Reviews.create(req.body).then(function (dbReviews) {
+      res.json(dbReviews);
+    });
+  });
+
 
   // Delete an experience by id
   app.delete("/api/experiences/:groupName", function (req, res) {
