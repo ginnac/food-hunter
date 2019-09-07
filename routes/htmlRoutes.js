@@ -29,7 +29,15 @@ module.exports = function(app) {
 
 
    // Load restaurant page and pass in as the result
-   app.get("/restaurant/:groupname/:id", function(req, res) {
+   app.get("/get-review/:id", function(req, res) {
+    db.Experiences.findOne({ where: { id: req.params.id } }).then(function(dbExperiences) {
+      res.render("reviews", {
+        experiences: dbExperiences,
+      });
+    });
+  });
+
+  app.get("/restaurant/:groupname/:id", function(req, res) {
     db.Restaurants.findOne({ where: { id: req.params.id } }).then(function(dbRestaurants) {
       res.render("restaurant", {
         restaurants: dbRestaurants,
