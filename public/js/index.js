@@ -9,13 +9,23 @@ var $experienceZip = $("#zipcode");
 var $submitBtn = $("#groupSubmit");
 var theExperience;
 var groupname;
+var photos = [];
 
 
 // The API object contains methods for each kind of request we'll make
 var API = {
+  //save photos to database
+  savePhotos:function(photosArray){
+    
+    return $.ajax({ 
+      type: "POST",
+      url: "/api/photos",
+      data: photosArray,
+    });
+  },
+
   //saving index questions to our database through ur API route
   saveExperience: function (experience) {
-
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -47,6 +57,13 @@ var API = {
       type: "GET"
     });
   },
+
+  getAllPhotos: function(){
+    return $.ajax({
+      url: "/api/all-photos",
+      type: "GET"
+    });
+  }
 },
 
   // new function below is called whenever we submit a new experience through the database
@@ -87,19 +104,35 @@ var API = {
           $experienceEmail.val("");
           $experienceZip.val("");
 
-          //work on id; 
-
-          window.location.href = "/survey/" + groupname;
-
-
+          //create photos if needed to
+          createPhotosRows();
         });
       }
     });
-
   };
 
 
-// // Add event listeners to the submit button
+  function createPhotosRows(){
+    //check if no photos were created
+    API.getAllPhotos().then(function(response){
+      photos.push(response);
+      if(response.length > 0){
+        window.location.href = "/survey/" + groupname;
+      }
+       //if no photos create photos rows
+      else{
+        API.savePhotos().then(function(response){
+          window.location.href = "/survey/" + groupname;
+            res.json(response);
+        });
+      }
+
+      
+    });   
+  };
+     
+
+// Add event listeners to the submit button
 $submitBtn.on("click", submitGroup);
 
 

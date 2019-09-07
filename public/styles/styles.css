@@ -133,3 +133,8 @@ div{
    padding-right: 15px;
   
 }
+
+/* ginna's code to see text in restaurant and be able to do changes....*/
+#res-name, #res-data{
+  color: black;
+}
