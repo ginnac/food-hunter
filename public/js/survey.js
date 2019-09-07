@@ -10,7 +10,7 @@ var numberEaters;
 var $buttonSave = $("#buttonSave");
 var answers = [];
 var zipcode;
-
+var currentEmail;
 
 //getting number stored in local storage
 numEater = localStorage.getItem("number");
@@ -57,13 +57,10 @@ API.getEaterNumber(groupname).then(function (data) {
     numberEaters = data.number_eaters; 
   }
   zipcode = data.zipcode;
-
+  currentEmail = data.email; 
   displaySurvey(numberEaters, numEater,zipcode);
 
 });
-
-
-
 
 //function to redeem survey page
 function displaySurvey(numberEaters, numEater, zipcode) {
@@ -255,7 +252,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
         //store latitude and logitude to localStorage
         localStorage.setItem("latitude", latitude);
         localStorage.setItem("longitude", longitude);
-        
+        localStorage.setItem("currentEmail", currentEmail);
         //display the next html - restautants
         window.location.href = "/restaurant/" + groupname;
         console.log("page loaded");
@@ -265,5 +262,14 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     });
 
   }
+  var userEmail = localStorage.getItem("currentEmail")
+    $.post("/api/email/" + userEmail)
+        .then(function (data) {
+            console.log("hit the route");
+            //go back to front page
+            window.location.href = "/";
+            console.log("hit the route after");
+        });
+
 
 }

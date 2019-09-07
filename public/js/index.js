@@ -9,11 +9,23 @@ var $experienceZip = $("#zipcode");
 var $submitBtn = $("#groupSubmit");
 var theExperience;
 var groupname;
+var sendEmail;
 
 
 // The API object contains methods for each kind of request we'll make
 var API = {
   //saving index questions to our database through ur API route
+  sendEmail: function () {
+
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/api/email:email",
+      data: JSON.stringify(experience)
+    });
+  },
   saveExperience: function (experience) {
 
     return $.ajax({
