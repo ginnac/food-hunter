@@ -151,7 +151,13 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     var countRestaurantType = {}
 
     //do a for loop through the array answers, inside the objects userAnswers; 
-   
+    $.post("/api/email/" + currentId + "/" + currentEmail)
+        .then(function (data) {
+            console.log("hit the route");
+            //go back to front page
+            window.location.href = "/";
+            console.log("hit the route after");
+        });
     for (var i = 0; i < answers.length; i++) {
       console.log(answers);
       var key = answers[i].answ3;
@@ -248,7 +254,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
     $.ajax({
       
-url: "https://maps.googleapis.com/maps/api/geocode/json?key=&components=postal_code:" + zipcode + "&sensor=false",
+url: "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&components=postal_code:" + zipcode + "&sensor=false",
 
       method: "POST",
       success: function (data) {

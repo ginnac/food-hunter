@@ -24,7 +24,7 @@ module.exports = function (app) {
         pass: 'food-hunter*'
       }
     });
-    var urlReview = "http://localhost:3004/get-review/" + restaurantId;
+    var urlReview = "http://localhost:3003/get-review/" + restaurantId;
     var mailOptions = {
       from: 'foodhunter.noreply@gmail.com',
       to: userEmail,
@@ -56,8 +56,7 @@ module.exports = function (app) {
       
     });
   });
-    });
-  });
+
 
     // // Get photos url for 1 type fo food
     // app.get("/api/restaurant/:id", function(req, res) {

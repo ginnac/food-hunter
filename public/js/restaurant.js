@@ -49,16 +49,12 @@ function loadScript(src, callback) {
 }
 
 //team please create your own key with google maps API; message me if you need help with that!! :)
-<<<<<<< HEAD
- loadScript('https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initialize', 
-=======
 
 
 
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
 
 
->>>>>>> 58a8bd2e24965d63f9438aba847e1804810dcefc
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
@@ -172,7 +168,7 @@ function loadScript(src, callback) {
     API.getPhotoArray(chosenRestaurant).then(function (data) {
         
         console.log (data.urls_array);
-        var scrUrl = data. urls_array;
+        var scrUrl = data.urls_array;
 
         allresponses = [];
 
