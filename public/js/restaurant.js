@@ -1,20 +1,20 @@
 
  //id of restaurant will have to be coming from our resturant table
- $("#results").hide();
- $("#reset-game").hide();
- $("#email-button").show();
+//  $("#results").hide();
+//  $("#reset-game").hide();
+//  $("#email-button").show();
 
  //when clicking on results id, then send email and show resolution
- $("#results").on("click", function(event){
+//  $("#results").on("click", function(event){
     //send email to user
 
     //discover results..
-    event.preventDefault();
-    $("#results").show();
-    $("#email-button").hide();
-    $("#reset-game").hide();
+//     event.preventDefault();
+//     $("#results").show();
+//     $("#email-button").hide();
+//     $("#reset-game").hide();
 
- });
+//  });
 
 
  //when clicking on reset game
@@ -51,7 +51,7 @@ function loadScript(src,callback){
  }
  
 //team please create your own key with google maps API; message me if you need help with that!! :)
- loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDM07rWKSpGs6eZ788blx8FNXQI9SoxsZE&libraries=places&callback=initialize', 
+ loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
@@ -121,8 +121,19 @@ function loadScript(src,callback){
               console.log(results[i]);
               //need to do math random to get random response
           }
-      }
-  }
+             //need to do math random to get random responses (3 responses the most, and then 
+             groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
+             console.log(groupChosenRestaurantIndex);
+             groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
+             console.log(groupChosenRestaurant);
+             $("#res-name").text(groupChosenRestaurant.name);
+             $("#res-data").text(groupChosenRestaurant.formatted_address);
+   
+             console.log(groupChosenRestaurant);
+         }
+     }
+      
+  
 
   function createMarker(place){
       var placeLoc = place.geometry.location;

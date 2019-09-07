@@ -26,7 +26,7 @@ height:100%;
 } */
 
 /* the background black box */
- .row {
+ #row1{
     padding-top: 0.5px;
     margin: auto;
     z-index: 10;
@@ -104,10 +104,28 @@ height:100%;
     width: 100%;
     height: 34px;
    }
-   #map{
-    height:500px;
-    width:500px;
-   }
+
+   /* google map styling */
+   #map_canvas{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+    width: 70%;
+  }
+/* play again button on restuarant  */
+  #again{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+  }
+/* card on restuarant */
+  .card{
+  margin-left: 100%;
+  margin-top:20%;
+
+  }
    .row-survey{
     padding: 15px;
     margin: 50px;
@@ -157,7 +175,7 @@ height:100%;
     border-color: black;
    }
    
-   @media(max-width: 320px ){
+   /* @media(max-width: 320px ){
     
       .row {
           padding-top: 0.5px;
@@ -345,7 +363,7 @@ height:100%;
   margin-right: auto;
 }
 /* Survey.hadlebars */
-.panel-title {
+/* .panel-title {
   font-size: 45px;
   padding: 01px; 
 }
@@ -381,9 +399,6 @@ height:100%;
 
 #buttonSave:hover {
   box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
-}
+} */
 
-/* Restaurant handlebars */
-
-/* Review handlebars */
-
+ 
