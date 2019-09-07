@@ -54,7 +54,8 @@ module.exports = function (app) {
       
     });
   });
-
+    });
+  });
 
   //find all photos
    app.get("/api/all-photos", function(req, res) {
