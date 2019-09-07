@@ -103,31 +103,30 @@ height:100%;
     display: block;
     width: 100%;
     height: 34px;
+    border-color: black;
    }
 
    /* google map styling */
    #map_canvas{
      margin-left: auto;
      margin-right: auto; 
-    width: 70%;
+     margin-top: 10px;
+    width: 100%;
   }
 /* play again button on restuarant  */
   #again{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    background-color: rgb(224, 186, 60);
+    margin-top: 15px;
+   background-color: rgb(224, 186, 60);
    border-color: black;
-    
+
   }
-/* card on restuarant */
+   
   .card{
-  margin-left: 100%;
-  margin-top:10%;
-
+    height: 80%;
   }
 
-  /* #row2{
+
+   #row2{
     padding-top: 10px;
     margin: auto;
     z-index: 40;
@@ -139,7 +138,7 @@ height:100%;
     clear: both;
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
-  } */
+  } 
    .row-survey{
     padding: 15px;
     margin: 50px;
@@ -189,250 +188,5 @@ height:100%;
     border-color: black;
    }
 
-   /* Restuarant's media queries */
-   @media screen and (max-width: 768px){
-   .container{
-     width: 100%;
-   }
-
-   @media screen and (max-width: 320px){
-    .container{
-      width: 100%;
-    }
-    
-    
-  @media screen and (max-width: 168){
-      .container{
-        width: 100%;
-      }
-      
-    }
-  }   
+ 
    
-   /* @media(max-width: 320px ){
-    
-      .row {
-          padding-top: 0.5px;
-          margin: auto;
-          z-index: 10;
-          position: fixed;
-          left: 30px;
-          right: 30px;
-          clear: both; 
-          background: rgba(0, 0, 0, 0.5);
-          padding: 30px;
-        }
-        .row h2 {
-          text-align: left;
-          padding-top: 70px;
-          margin-bottom: 0px;
-          font-size: 125px;
-          font-stretch: auto;
-          line-height: 1.5;
-          font-weight: 230;
-          font-family: "Kaushan Script", cursive;
-          display: block;
-          margin-block-start: 0.67em;
-          margin-block-end: 0.67em;
-          margin-inline-start: 0px;
-          margin-inline-end: 0px;
-        }
-      
-        #home {
-          padding-top: 09%;
-          
-        }
-        .container-fluid {
-          max-width: 1000px;
-          position: relative;
-          margin: auto;
-          padding-left: 10px;
-          padding-right: 10px; 
-        } 
-        
-        .form-control {
-         font-size:15px;
-        }
-        .form-group {
-          font-size: 25px;
-        } 
-      
-        #groupSubmit {
-          background-color: rgb(223, 188, 113);
-          border-color: black;
-        }
-      
-         }
-         @media (min-width: 300px) and (max-width: 414px){
-        
-          
-        
-              .row h2 {
-                text-align: left;
-                padding-top: 70px;
-                margin-bottom: 0px;
-                font-size: 125px;
-                font-stretch: auto;
-                line-height: 1.5;
-                font-weight: 230;
-                font-family: "Kaushan Script", cursive;
-                display: block;
-                margin-block-start: 0.67em;
-                margin-block-end: 0.67em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            
-              #home {
-                padding-top: 09%;
-                
-              }
-               .container-fluid {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-                padding-left: 10px;
-                padding-right: 10px; 
-              } 
-              .form-control {
-               font-size:15px;
-              }
-              .form-group {
-                font-size: 25px;
-              } 
-            
-              #groupSubmit {
-                background-color: rgb(223, 188, 113);
-                border-color: black;
-              }
-         }   
-         @media (min-width: 415px) and (max-width: 645px){
-         
-              .row h2 {
-                text-align: left;
-                padding-top: 70px;
-                margin-bottom: 0px;
-                font-size: 125px;
-                font-stretch: auto;
-                line-height: 1.5;
-                font-weight: 230;
-                font-family: "Kaushan Script", cursive;
-                display: block;
-                margin-block-start: 0.67em;
-                margin-block-end: 0.67em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            
-              #home {
-                padding-top: 09%;
-                
-              }
-              .container-fluid {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-                padding-left: 10px;
-                padding-right: 10px; 
-              } 
-              .form-control {
-               font-size:15px;
-              }
-              .form-group {
-                font-size: 25px;
-              } 
-            
-              #groupSubmit {
-                background-color: rgb(223, 188, 113);
-                border-color: black;
-              }
-         }
-  
-.chosen-select {
-  display: block;
-  width: 100%;
-  height: 34px;
-   
-} 
-
-#map{
-  height:500px;
-  width:500px;
-}
-
-
- .row-survey{
- padding: 15px;
- margin: 50px;
- box-sizing: border-box;
- border: black;
-
-} 
-
- .col-lg-10{
-  margin-block-start: 1.33em;
-  margin-block-end: 1.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  
-} 
-
-.panel-body{
-  padding: 50px;
-   padding-top: 50px;
-   padding-bottom: 50px;
-   padding-left: 50px;
-   padding-right: 50px;
-  
-}
-
-.row-questions{
-  margin-block-start: 1.33em;
-  margin-block-end: 1.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* Survey.hadlebars */
-/* .panel-title {
-  font-size: 45px;
-  padding: 01px; 
-}
-#eater-number {
-  font-size: 30px;
-  padding: 01px;
-}
-
-.row-questions {
-  padding-top: 10px;
-  margin: auto;
-  z-index: 40;
-  position: fixed;
-  top: 40px;
-  bottom: 40px;
-  left: 30px;
-  right: 30px;
-  clear: both; 
-  background: rgba(0, 0, 0, 0.5);
-  padding: 30px;
-}
- .chosen-select {
-  background-color: rgb(255, 254, 255);
-  border-color: black;
-  border-style: thin;
-  border-width: 02px;  
- }
-
-#buttonSave {
-  background-color: rgb(224, 186, 60);
-  border-color: black; 
-  }
-
-#buttonSave:hover {
-  box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
-} */
-
-}
