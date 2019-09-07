@@ -107,25 +107,39 @@ height:100%;
 
    /* google map styling */
    #map_canvas{
-     display: block;
      margin-left: auto;
-     margin-right: auto;
+     margin-right: auto; 
     width: 70%;
   }
 /* play again button on restuarant  */
   #again{
-    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    background-color: rgb(224, 186, 60);
+   border-color: black;
     
   }
 /* card on restuarant */
   .card{
   margin-left: 100%;
-  margin-top:20%;
+  margin-top:10%;
 
   }
+
+  /* #row2{
+    padding-top: 10px;
+    margin: auto;
+    z-index: 40;
+    position: fixed;
+    top: 40px;
+    bottom: 40px;
+    left: 30px;
+    right: 30px;
+    clear: both;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+  } */
    .row-survey{
     padding: 15px;
     margin: 50px;
@@ -174,6 +188,26 @@ height:100%;
     background-color: rgb(223, 188, 113);
     border-color: black;
    }
+
+   /* Restuarant's media queries */
+   @media screen and (max-width: 768px){
+   .container{
+     width: 100%;
+   }
+
+   @media screen and (max-width: 320px){
+    .container{
+      width: 100%;
+    }
+    
+    
+  @media screen and (max-width: 168){
+      .container{
+        width: 100%;
+      }
+      
+    }
+  }   
    
    /* @media(max-width: 320px ){
     
@@ -401,4 +435,4 @@ height:100%;
   box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
 } */
 
- 
+}
