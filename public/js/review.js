@@ -9,7 +9,7 @@ $("#buttonReview").off().on("click", function (event) {
     var rev1 = $("#r1").val();
     var rev2 = $("#r2").val();
 
-    var experience = { app_review: rev1, app_restaurant: rev2 }
+    var experience = { app_review: rev1, app_restaurant:rev2, RestaurantId:id }
     $.ajax({
         headers: {
             "Content-Type": "application/json"

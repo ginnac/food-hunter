@@ -26,6 +26,8 @@ var chosenResponses = [];
 var groupChosenRestaurant;
 var groupChosenRestaurantIndex;
 var zipcode;
+var currentEmail;
+var restaurantId;
 
 zipcode = localStorage.getItem("zipcode");
 latitude = localStorage.getItem("latitude");
@@ -34,6 +36,7 @@ priceMax = localStorage.getItem("priceMax");
 priceMin = localStorage.getItem("priceMin");
 priceMax = localStorage.getItem("priceMax");
 chosenRestaurant = localStorage.getItem("chosenRestaurant");
+currentEmail = localStorage.getItem("currentEmail");
 
 //retrieve local stored latitude and longitude and use it to call text search google api;
 function loadScript(src, callback) {
@@ -48,7 +51,7 @@ function loadScript(src, callback) {
 //team please create your own key with google maps API; message me if you need help with that!! :)
 
 
- loadScript('https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initialize', 
+ loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
 
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
@@ -168,7 +171,7 @@ function loadScript(src, callback) {
         allresponses = [];
 
         //need to do math random to get random responses (3 responses the most, and then 
-        groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
+        groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length - 1);
 
         console.log(groupChosenRestaurantIndex);
         groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
@@ -188,11 +191,25 @@ function loadScript(src, callback) {
             photo: scrUrl,
         };
         
-        API.saveRestaurant(restaurantObj).then(function (){
-
+        API.saveRestaurant(restaurantObj).then(function (data){
+          console.log (data);
+          restaurantId = data.id;
+          
+            $.post("/api/email/" + restaurantId + "/" + currentEmail)
+            .then(function (data) {
+                console.log("hit the route");
+                //go back to front page
+                window.location.href = "/";
+                console.log("hit the route after");
+            });
+          
+         
         });
     })
     }
+
+
+    
 
 
   var API = {
@@ -232,7 +249,7 @@ function loadScript(src, callback) {
               newDiv.attr("id","reviewsId");
               //create p, and add text in rating 
               var newP = $("<p>");
-              newP.text(" Restaurant Name: " + data[i].name + " Address: " + data[i].address + " Cuisine: " + data[i].kind_food);
+              newP.text(" Restaurant Name: " + data[i].name + " Address: " + data[i].address + " Cuisine: " + data[i].kind_food + "Reviews: " + data[i].Reviews[0].app_restaurant );
               //create image element and add atrribute SRC to it, still and moving attribute, and append it to div
               var pic = $("<img>");
               pic.attr("src", data[i].photo);
