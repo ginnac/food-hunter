@@ -1,7 +1,7 @@
 <!--- need to us modal to use checkbox, 3 questions with is own checkboxes -->
 
 <head>
-  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap" rel="stylesheet">
 </head>
 
@@ -10,20 +10,27 @@
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Survey Questions</h3>
+          
         </div>
         <div class="panel-body">
-          <h3 id="eater-number">
+
+          
+           <div class="row-questions"> 
+            <div class="row-align-center">
+
+            <div class="col-md-10">
+              <h3 class="panel-title">Survey Questions</h3>
+              <br>
+              <h3 id="eater-number">
             <strong> Eater # </strong>
           </h3>
-          <div class="row questions">
-            <div class="col-md-10"></div>
-            <h5>
-              <strong>What food type are you craving at the moment? </strong>
+          <br>
+              <h5>
+                <strong>What food type are you craving at the moment? </strong>
 
-            </h5>
-            <select class="chosen-select" id="q1">
-              <option value>Select Option</option>
+              </h5>
+              <select class="chosen-select" id="q1">
+                <option value>Select Option</option>
 
               <option value="american restaurant">American Cuisine</option>
               <option value="indian restaurant">Indian Cuisine</option>
@@ -37,6 +44,7 @@
           </div>
         </div>
         <div class="col-md-10">
+
           <h5>
             <strong>What's your current mood? </strong>
           </h5>
@@ -48,7 +56,7 @@
             <option value="hangry">hangry</option>
           </select>
         </div>
-        <div class="col-md-10">
+        <div class="col-lg-10">
           <h5>
             <strong> How much would you like to spend on your meal? </strong>
           </h5>
@@ -60,7 +68,7 @@
           </select>
         </div>
       </div>
-
+       <br>
       {{!-- Sumbit Button --}}
       <button type="submit" class="btn btn-primary btn-lg btn-block" id="buttonSave"> Submit</button>
       <hr>
