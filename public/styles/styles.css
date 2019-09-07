@@ -16,7 +16,6 @@ background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Flongf
 background-repeat: repeat-x;
 background-size: 1000px 1000px;
 
-
 }
 
 h1 {
@@ -33,12 +32,15 @@ h1 {
     clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
+    border-color: rgb(189, 22, 22);
+    border-style: thin;
+    border-width: 08px; 
   }
   .row h2 {
     text-align: left;
-    padding-top: 70px;
+    padding-top: 50px;
     margin-bottom: 0px;
-    font-size: 125px;
+    font-size: 115px;
     font-stretch: auto;
     line-height: 1.5;
     font-weight: 230;
@@ -51,7 +53,7 @@ h1 {
   }
 
   #home {
-    padding-top: 09%;
+    padding-top: 05%;
     
   }
   
@@ -97,9 +99,15 @@ div{
   height:500px;
   width:500px;
 }
-
+/* Survey.hadlebars */
+h5 {
+ font-size: 25px;
+ font-weight: 100; 
+}
 
  .row-survey{
+ font-size: 15px;
+ font-weight: 100;
  padding: 15px;
  margin: 50px;
  box-sizing: border-box;
@@ -134,7 +142,7 @@ div{
   margin-left: auto;
   margin-right: auto;
 }
-/* Survey.hadlebars */
+
 .panel-title {
   font-size: 45px;
   padding: 01px; 
@@ -174,6 +182,52 @@ div{
 }
 
 /* Restaurant handlebars */
+.btn-primary {
+  background-color: rgb(224, 186, 60);
+  border-color: black;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.btn-primary:hover {
+  box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
+}
 
+.card {
+  margin-left: 80%;
+}
 /* Review handlebars */
 
+/* media queries */
+@media screen and (max-width: 980px) {
+  .row {
+  width: 100%;
+}
+}
+@media screen and (max-width: 768px) {
+  .row {
+    width: 100%;
+}
+}
+@media screen and (max-width: 640px) {
+ .row {
+   width: 80%
+ }
+  .row h2 {
+   width:98%;
+   clear:both;
+   } 
+ }
+ @media screen and (max-width: 768px) {
+  .row h2 {
+    width: 80%;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .row h2 {
+    width: 90%
+  }
+}
