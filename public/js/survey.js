@@ -251,7 +251,11 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     console.log(zipcode);
 
     $.ajax({
+<<<<<<< HEAD
       url: "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&components=postal_code:" + zipcode + "&sensor=false",
+=======
+      url: "https://maps.googleapis.com/maps/api/geocode/json?key=&components=postal_code:" + zipcode + "&sensor=false",
+>>>>>>> 719f133690b766923eacf4a0fa9d21e49eb958fe
       method: "POST",
       success: function (data) {
         console.log(data);

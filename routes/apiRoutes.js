@@ -52,7 +52,7 @@ module.exports = function (app) {
     });
   });
 
-  // PUT route for updating posts
+  // POST route for create the review
   app.post("/api/review/:id", function (req, res) {
     db.Reviews.create(req.body).then(function (dbReviews) {
       res.json(dbReviews);

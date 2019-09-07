@@ -8,7 +8,7 @@ $("#buttonReview").off().on("click", function (event) {
     var id = locationArr[2];
     var rev1 = $("#r1").val();
     var rev2 = $("#r2").val();
-    
+
     var experience = { app_review: rev1, app_restaurant: rev2 }
     $.ajax({
         headers: {
