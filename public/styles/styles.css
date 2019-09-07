@@ -1,11 +1,11 @@
 
+
 /* welcome page */
 .list-group-item {
   line-height: 2.5;
 }
 /* main/index page */
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico&display=swap');
-
 body {
 background-color: rgb(210, 221, 205);
 font-family: 'Pacifico', cursive;
@@ -15,15 +15,18 @@ color: #f3f0e0;
 background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Flongfordpc.com%2Fimages%2Fbackgrond-clipart-food-2.jpg');
 background-repeat: repeat-x;
 background-size: 1000px 1000px;
+height:100%;
 
 
 }
 
-h1 {
+/* h1 {
   font-size: 24px;
   padding: 18px; 
-}
-.row {
+} */
+
+/* the background black box */
+ #row1{
     padding-top: 0.5px;
     margin: auto;
     z-index: 10;
@@ -33,8 +36,11 @@ h1 {
     clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
-  }
-  .row h2 {
+  }  
+
+  /* title of the food-hunter in index-page */
+
+   .row h2 {
     text-align: left;
     padding-top: 70px;
     margin-bottom: 0px;
@@ -48,12 +54,23 @@ h1 {
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-  }
+  } 
 
-  #home {
+  /* #home {
     padding-top: 09%;
     
-  }
+  } */
+  .container-fluid {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px; 
+  } 
+   .form-control {
+   font-size:15px;
+  } 
+  
   
   .form-control {
    font-size:15px;
@@ -70,22 +87,267 @@ h1 {
     background-color:  rgb(224, 186, 60);
     border-color: black;
   }
-  #groupSubmit:hover {
-    box-shadow: 0 12px 16px 0 rgba(238, 7, 219, 0.24),0 17px 50px 0 rgba(230, 8, 182, 0.19);
+
+
+
+  div{
+    display: block;
+   }
+   .col-md-10{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+   }
+   .chosen-select{
+    display: block;
+    width: 100%;
+    height: 34px;
+   }
+
+   /* google map styling */
+   #map_canvas{
+     margin-left: auto;
+     margin-right: auto; 
+    width: 70%;
   }
+/* play again button on restuarant  */
+  #again{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: rgb(224, 186, 60);
+   border-color: black;
+    
+  }
+/* card on restuarant */
+  .card{
+  margin-left: 100%;
+  margin-top:10%;
+
+  }
+
+  /* #row2{
+    padding-top: 10px;
+    margin: auto;
+    z-index: 40;
+    position: fixed;
+    top: 40px;
+    bottom: 40px;
+    left: 30px;
+    right: 30px;
+    clear: both;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+  } */
+   .row-survey{
+    padding: 15px;
+    margin: 50px;
+   box-sizing: border-box;
+   border: black;
+   }
+   .col-md-10{
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   .panel-body{
+    padding: 50px;
+     padding-top: 50px;
+     padding-bottom: 50px;
+     padding-left: 50px;
+     padding-right: 50px;
+   }
+   .row-questions{
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   
+   /* Survey.hadlebars */
+   .row-questions {
+    padding-top: 10px;
+    margin: auto;
+    z-index: 40;
+    position: fixed;
+    top: 40px;
+    bottom: 40px;
+    left: 30px;
+    right: 30px;
+    clear: both;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+   }
+   #buttonSave {
+    background-color: rgb(223, 188, 113);
+    border-color: black;
+   }
+
+   /* Restuarant's media queries */
+   @media screen and (max-width: 768px){
+   .container{
+     width: 100%;
+   }
+
+   @media screen and (max-width: 320px){
+    .container{
+      width: 100%;
+    }
+    
+    
+  @media screen and (max-width: 168){
+      .container{
+        width: 100%;
+      }
+      
+    }
+  }   
+   
+   /* @media(max-width: 320px ){
+    
+      .row {
+          padding-top: 0.5px;
+          margin: auto;
+          z-index: 10;
+          position: fixed;
+          left: 30px;
+          right: 30px;
+          clear: both; 
+          background: rgba(0, 0, 0, 0.5);
+          padding: 30px;
+        }
+        .row h2 {
+          text-align: left;
+          padding-top: 70px;
+          margin-bottom: 0px;
+          font-size: 125px;
+          font-stretch: auto;
+          line-height: 1.5;
+          font-weight: 230;
+          font-family: "Kaushan Script", cursive;
+          display: block;
+          margin-block-start: 0.67em;
+          margin-block-end: 0.67em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+        }
+      
+        #home {
+          padding-top: 09%;
+          
+        }
+        .container-fluid {
+          max-width: 1000px;
+          position: relative;
+          margin: auto;
+          padding-left: 10px;
+          padding-right: 10px; 
+        } 
+        
+        .form-control {
+         font-size:15px;
+        }
+        .form-group {
+          font-size: 25px;
+        } 
+      
+        #groupSubmit {
+          background-color: rgb(223, 188, 113);
+          border-color: black;
+        }
+      
+         }
+         @media (min-width: 300px) and (max-width: 414px){
+        
+          
+        
+              .row h2 {
+                text-align: left;
+                padding-top: 70px;
+                margin-bottom: 0px;
+                font-size: 125px;
+                font-stretch: auto;
+                line-height: 1.5;
+                font-weight: 230;
+                font-family: "Kaushan Script", cursive;
+                display: block;
+                margin-block-start: 0.67em;
+                margin-block-end: 0.67em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+            
+              #home {
+                padding-top: 09%;
+                
+              }
+               .container-fluid {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+                padding-left: 10px;
+                padding-right: 10px; 
+              } 
+              .form-control {
+               font-size:15px;
+              }
+              .form-group {
+                font-size: 25px;
+              } 
+            
+              #groupSubmit {
+                background-color: rgb(223, 188, 113);
+                border-color: black;
+              }
+         }   
+         @media (min-width: 415px) and (max-width: 645px){
+         
+              .row h2 {
+                text-align: left;
+                padding-top: 70px;
+                margin-bottom: 0px;
+                font-size: 125px;
+                font-stretch: auto;
+                line-height: 1.5;
+                font-weight: 230;
+                font-family: "Kaushan Script", cursive;
+                display: block;
+                margin-block-start: 0.67em;
+                margin-block-end: 0.67em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+            
+              #home {
+                padding-top: 09%;
+                
+              }
+              .container-fluid {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+                padding-left: 10px;
+                padding-right: 10px; 
+              } 
+              .form-control {
+               font-size:15px;
+              }
+              .form-group {
+                font-size: 25px;
+              } 
+            
+              #groupSubmit {
+                background-color: rgb(223, 188, 113);
+                border-color: black;
+              }
+         }
   
-
-div{
-  display: block;
-}
-
- .col-lg-10{
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 .chosen-select {
   display: block;
   width: 100%;
@@ -135,7 +397,7 @@ div{
   margin-right: auto;
 }
 /* Survey.hadlebars */
-.panel-title {
+/* .panel-title {
   font-size: 45px;
   padding: 01px; 
 }
@@ -171,11 +433,8 @@ div{
 
 #buttonSave:hover {
   box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
-}
+} */
 
-/* Restaurant handlebars */
-
-/* Review handlebars */
 
 
 .panel-body{
