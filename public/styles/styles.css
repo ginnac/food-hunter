@@ -177,3 +177,18 @@ div{
 
 /* Review handlebars */
 
+
+.panel-body{
+  padding: 15px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   padding-left: 15px;
+   padding-right: 15px;
+  
+}
+
+/* ginna's code to see text in restaurant and be able to do changes....*/
+#res-name, #res-data{
+  color: black;
+}
+

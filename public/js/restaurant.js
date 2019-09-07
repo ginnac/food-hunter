@@ -16,7 +16,9 @@ var allResponses = [];
 var chosenResponses = [];
 var groupChosenRestaurant;
 var groupChosenRestaurantIndex;
+var zipcode;
 
+zipcode = localStorage.getItem("zipcode");
 latitude = localStorage.getItem("latitude");
 longitude = localStorage.getItem("longitude");
 priceMax = localStorage.getItem("priceMax");
@@ -102,19 +104,12 @@ function loadScript(src,callback){
           for (var i = 0; i<results.length;i++){
               markers.push(createMarker(results[i]));
               allResponses.push(results[i]);
-              console.log(allResponses);
-              
+              console.log(allResponses);              
           }
 
-          //need to do math random to get random responses (3 responses the most, and then 
-          groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
-          console.log(groupChosenRestaurantIndex);
-          groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
-          console.log(groupChosenRestaurant);
-          $("#res-name").text(groupChosenRestaurant.name);
-          $("#res-data").text(groupChosenRestaurant.formatted_address);
+          writeToDom(allResponses);
 
-          console.log(groupChosenRestaurant);
+
       }
   }
 
@@ -122,7 +117,13 @@ function loadScript(src,callback){
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
           map:map,
-          position:place.geometry.location
+          position:place.geometry.location,
+          //
+          place: {
+            placeId: place.place_id,
+            location: place.geometry.location,
+            name:place.name
+          }
       });
 
       google.maps.event.addListener(marker, "click", function(){
@@ -140,66 +141,94 @@ function loadScript(src,callback){
       markers =[]
   }
 
+  //function to write the results to dom: 
+
+  function writeToDom(allResponses){
+
+    //ajax:
+    API.getPhotoArray(chosenRestaurant).then(function (data) {
+        
+        console.log (data.urls_array);
+        var scrUrl = data. urls_array;
+
+        allresponses = [];
+
+        //need to do math random to get random responses (3 responses the most, and then 
+        groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
+        console.log(groupChosenRestaurantIndex);
+        groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
+        console.log(groupChosenRestaurant);
+        $("#res-name").text(groupChosenRestaurant.name);
+        $("#res-data").text(groupChosenRestaurant.formatted_address);
+        $("#res-photo").attr("src", scrUrl);
+
+        console.log(groupChosenRestaurant);
 
 
+        var restaurantObj ={
+            name: groupChosenRestaurant.name,
+            kind_food: chosenRestaurant,
+            address: groupChosenRestaurant.formatted_address,
+            zip_code: zipcode,
+            photo: scrUrl,
+        };
+        
+        API.saveRestaurant(restaurantObj).then(function (){
 
-  //function in case we dont get results: 
-
-//   function defaultInitialize(){  
-//     var chosenRestaurant = "restaurant"
-//     var center = new google.maps.LatLng(latitude, longitude);
-//     map = new google.maps.Map(document.getElementById("map_canvas"),{
-//         center:center,
-//         zoom:13,
-//     });
-  
-  
-  
-//   //****change the query value for responses I get *****//    
-//    request = {
-//      location:center,
-//      //radius values is in meters
-//      radius:16090,
-//      query: chosenRestaurant,
-//      //price level values from 0 to 4
-//      maxPriceLevel: priceMax,
-//      minPriceLevel: priceMin,
-//      openNow: true,
-//     };
-  
-//     infowindow = new google.maps.InfoWindow();
-  
-//    ///  service = new google.maps.places.PlacesService(map);
-//    ///  service.nearbySearch(request, callback);
-  
-//    service = new google.maps.places.PlacesService(map);
-//    service.textSearch(request, callback);
-  
-//     //function to search anywhere in the map...
-//     //first parameter is element to tab on
-//     //second element is the event happening....
-//     google.maps.event.addListener(map, "rightclick" , function(event){
-//        map.setCenter(event.latLng);
-//        clearResults(markers);
-  
-//        var request = {
-//            location:event.latLng,
-//            radius: 16090,
-//            query: chosenRestaurant,
-//            openNow: true,
-//            maxPriceLevel: priceMax,
-//            minPriceLevel: priceMin,
-  
-//           // types:["restaurant"],
-//        };
-//        /// service.nearbySearch(request,callback);
-//        service.textSearch(request, callback);
-//     });
-  
-//     }
+        });
+    })
+    }
 
 
+  var API = {
+    getPhotoArray: function (chosenRestaurant) {
+        return $.ajax({
+          url: "/api/photos/" + chosenRestaurant,
+          type: "GET"
+        });
+      },
+      saveRestaurant: function (restaurantQuery) {
+        return $.ajax({
+          headers: {
+            "Content-Type": "application/json"
+          },
+          type: "POST",
+          url: "/api/restaurants",
+          data: JSON.stringify(restaurantQuery)
+        });
+      }
+  }
 
+
+  
+  $("#reviewsButton").on("click", function(event){
+    event.preventDefault();
+    var zipCode = $("#zipcode").val().trim();
+    var restaurantType = $("#cs-1").val().trim();
+    $.get("/api/reviews/" + zipCode + "/" + restaurantType)
+        .then(function (data) {
+         
+            console.log(data);
+
+            for(var i=0;i<data.length;i++){
+              //create div for the image and for the rating; 
+              //create div
+              var newDiv = $("<div>");
+              newDiv.attr("id","reviewsId");
+              //create p, and add text in rating 
+              var newP = $("<p>");
+              newP.text(" Restaurant Name: " + data[i].name + " Address: " + data[i].address + " Cuisine: " + data[i].kind_food);
+              //create image element and add atrribute SRC to it, still and moving attribute, and append it to div
+              var pic = $("<img>");
+              pic.attr("src", data[i].photo);
+              //append p and append image
+              newDiv.append(newP);
+              newDiv.append(pic);
+              //prepend div to the DIV ID#pic-of-animals in the dom
+              $("#reviews-records").prepend(newDiv);
+          }
+        });
+      });
  //------------------------------------------------------------------------------------------------------------------------------------//
 
  // work with allResponses array to get the 3 responses

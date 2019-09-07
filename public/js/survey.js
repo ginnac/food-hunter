@@ -101,13 +101,14 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
         answers.push(userAnswers);
         console.log(answers);
-        //storing array to localStorage;
+        //storing array to localStorage in case they refresh the page
         localStorage.setItem("answersArr", JSON.stringify(answers));
 
         //reduce number of eaters -1,
-
         numberEaters--;
         console.log(numberEaters);
+
+        //storing number of eaters to localStorage in case they refresh the page
         localStorage.setItem("number-of-eater", numberEaters);
         numberEaters = localStorage.getItem("number-of-eater");
         console.log(numberEaters);
@@ -117,7 +118,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
         $("#q2").val("");
         $("#q3").val("");
 
-        //make sure it doesnt happen when have are done taking the input from group members 
+        //validation
         if (numberEaters !== 0) {
           // console.log(numEater);
           numEater++;
@@ -129,7 +130,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
       }
 
-      //used to prevent reading empty values for new eater, still need this to happen when number of eaters  === 0 regardless if there is no answers...
+      //used to prevent reading empty values for new eater and should run when numberEaters is equal to zero.
       if (q1 !== "" && q2 !== "" && q3 !== "" || numberEaters === 0) {
         //call this function again;
         displaySurvey(numberEaters, numEater,zipcode);
@@ -140,7 +141,8 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
   
   
-  //if all eaters have taken the survey already....lets do some logic to calculate the type of restaurant and the price level to issue response....
+  //if all eaters have taken their corresponding survey, then....
+  //lets do some logic to calculate the type of restaurant and the price level to issue response....
   else {
     localStorage.clear();
 
@@ -185,7 +187,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     var priceWinner = priceArr[0][0];
     console.log("Group Budget is " + priceWinner)
 
-    //adding validation in case there is a match of answers-------;  
+    //Validation in case there is a match----;  
     if (priceArr[0][0] === priceArr[0][1]) {
       priceWinnerIndex = Math.floor(Math.random() * priceArr.length + 1);
       priceWinner = priceWinner[priceWinnerIndex][0];
@@ -196,7 +198,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
     if (priceWinner==="5-10"){
     var  priceWinnerMin = 0
     var   priceWinnerMax = 1
-     //local storing the budget
+     //local storing the budget to use in next page
     localStorage.setItem("priceMin", priceWinnerMin);
     localStorage.setItem("priceMax", priceWinnerMax);
     }
@@ -219,7 +221,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
 
 
 
-    //restaurant logic.....get the restaurant logic
+    //restaurant logic.....get the chosen type of restaurant 
     var restaurantArr = [];
     for (var groupRestaurant in countRestaurantType) {
       restaurantArr.push([groupRestaurant, countRestaurantType[groupRestaurant]]);
@@ -237,7 +239,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
    
    
     //ajax to call an google geocode API ------// 
-      // need to find a way to make the key private besides just allowing it to my url in my dev google console settings----// 
+      
     var latitude;
     var longitude;
 
@@ -255,6 +257,7 @@ function displaySurvey(numberEaters, numEater, zipcode) {
         //store latitude and logitude to localStorage
         localStorage.setItem("latitude", latitude);
         localStorage.setItem("longitude", longitude);
+        localStorage.setItem("zipcode", zipcode);
         
         //display the next html - restautants
         window.location.href = "/restaurant/" + groupname;
