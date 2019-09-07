@@ -7,5 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     photo: DataTypes.STRING
     
   });
+  Restaurants.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Restaurants.hasMany(models.Reviews, {
+      onDelete: "cascade"
+    });
+  };
   return Restaurants;
 };
