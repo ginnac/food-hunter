@@ -70,35 +70,25 @@ height:100%;
    .form-control {
    font-size:15px;
   } 
+  
+  
+  .form-control {
+   font-size:15px;
+   background-color: rgb(250, 247, 246);
+   border-color: black;
+   border-style: thin;
+   border-width: 03px; 
+  }
   .form-group {
     font-size: 25px;
   } 
 
   #groupSubmit {
-    background-color: rgb(223, 188, 113);
+    background-color:  rgb(224, 186, 60);
     border-color: black;
   }
 
 
-  
-
-   /* .tab-content h3 {
-    color: #fff;
-  }
-   .tab-content label {
-    color: rgba(255, 255, 255, 0.8);
-  }
-   .tab-content .tab-content-inner {
-    display: none;
-  }
-   .tab-content .tab-content-inner.active {
-    display: block;
-  }
-   .tab-content .form-control {
-    color: #fff !important;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-
-  } */
 
   div{
     display: block;
@@ -147,6 +137,7 @@ height:100%;
     margin-left: auto;
     margin-right: auto;
    }
+   
    /* Survey.hadlebars */
    .row-questions {
     padding-top: 10px;
@@ -305,3 +296,94 @@ height:100%;
               }
          }
   
+.chosen-select {
+  display: block;
+  width: 100%;
+  height: 34px;
+   
+} 
+
+#map{
+  height:500px;
+  width:500px;
+}
+
+
+ .row-survey{
+ padding: 15px;
+ margin: 50px;
+ box-sizing: border-box;
+ border: black;
+
+} 
+
+ .col-lg-10{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  
+} 
+
+.panel-body{
+  padding: 50px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   padding-left: 50px;
+   padding-right: 50px;
+  
+}
+
+.row-questions{
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Survey.hadlebars */
+.panel-title {
+  font-size: 45px;
+  padding: 01px; 
+}
+#eater-number {
+  font-size: 30px;
+  padding: 01px;
+}
+
+.row-questions {
+  padding-top: 10px;
+  margin: auto;
+  z-index: 40;
+  position: fixed;
+  top: 40px;
+  bottom: 40px;
+  left: 30px;
+  right: 30px;
+  clear: both; 
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+}
+ .chosen-select {
+  background-color: rgb(255, 254, 255);
+  border-color: black;
+  border-style: thin;
+  border-width: 02px;  
+ }
+
+#buttonSave {
+  background-color: rgb(224, 186, 60);
+  border-color: black; 
+  }
+
+#buttonSave:hover {
+  box-shadow: 0 12px 16px 0 rgba(225, 6, 233, 0.24),0 17px 50px 0 rgba(235, 7, 223, 0.19);
+}
+
+/* Restaurant handlebars */
+
+/* Review handlebars */
+
