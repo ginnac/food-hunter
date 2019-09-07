@@ -1,15 +1,8 @@
 
 //when clicking on reset game
-// $("#reset-game").on("click", function (event) {
-//     event.preventDefault();
-//     var userEmail = localStorage.getItem("currentEmail")
-//     $.post("/api/email/" + userEmail)
-//         .then(function (data) {
-//             console.log("hit the route");
-//             //go back to front page
-//             window.location.href = "/";
-//             console.log("hit the route after");
-//         });
+$("#reset-game").on("click", function (event) {
+event.preventDefault();
+  window.location.href = "/"; });
 
 // });
 // var userEmail = localStorage.getItem("currentEmail")
