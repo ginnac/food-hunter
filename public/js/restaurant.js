@@ -14,6 +14,7 @@ event.preventDefault();
 //         console.log("hit the route after");
 //     });
 
+
 var latitude;
 var longitude;
 var priceMin;
@@ -21,6 +22,7 @@ var priceMax;
 var chosenRestaurant;
 var allResponses = [];
 var chosenResponses = [];
+
 var groupChosenRestaurant;
 var groupChosenRestaurantIndex;
 var zipcode;
@@ -48,8 +50,14 @@ function loadScript(src, callback) {
 
 //team please create your own key with google maps API; message me if you need help with that!! :)
 
+
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
+<<<<<<< HEAD
  function(){log('google-loader has been loaded');});
+=======
+
+ function(){log('google-loader has been loaded, but not the maps-API ');});
+>>>>>>> bcc7c298ffaab1b647de3c46adfb633796f785f8
  
  var map;
  var infowindow;
@@ -115,6 +123,7 @@ function loadScript(src, callback) {
           for (var i = 0; i<results.length;i++){
               markers.push(createMarker(results[i]));
               allResponses.push(results[i]);
+
               console.log(allResponses);              
           }
 
@@ -123,6 +132,7 @@ function loadScript(src, callback) {
 
       }
   }
+
 
   function createMarker(place){
       var placeLoc = place.geometry.location;
@@ -288,6 +298,7 @@ function loadScript(src, callback) {
           }
         });
       });
+
  //------------------------------------------------------------------------------------------------------------------------------------//
 
 // work with allResponses array to get the 3 responses
