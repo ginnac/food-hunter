@@ -179,7 +179,7 @@ function loadScript(src, callback) {
     API.getPhotoArray(chosenRestaurant).then(function (data) {
         
         console.log (data.urls_array);
-        var scrUrl = data. urls_array;
+        var scrUrl = data.urls_array;
 
         allresponses = [];
 
