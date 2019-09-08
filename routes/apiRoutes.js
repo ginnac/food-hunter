@@ -25,7 +25,8 @@ module.exports = function (app) {
         pass: 'food-hunter*'
       }
     });
-    var urlReview = "http://localhost:3004/get-review/" + restaurantId;
+    //change domain for current domain for code to not run 404 
+    var urlReview = "https://hungry-food-hunter.herokuapp.com/get-review/" + restaurantId;
     var mailOptions = {
       from: 'foodhunter.noreply@gmail.com',
       to: userEmail,

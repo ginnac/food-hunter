@@ -52,12 +52,7 @@ function loadScript(src, callback) {
 
 
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
-<<<<<<< HEAD
  function(){log('google-loader has been loaded');});
-=======
-
- function(){log('google-loader has been loaded, but not the maps-API ');});
->>>>>>> bcc7c298ffaab1b647de3c46adfb633796f785f8
  
  var map;
  var infowindow;
