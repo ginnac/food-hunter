@@ -17,7 +17,11 @@ background-repeat: repeat-x;
 background-size: 1000px 1000px;
 height:100%;
 
+}
 
+img{
+  width:100px;
+  height:200px;
 }
 
 <<<<<<< HEAD
@@ -75,9 +79,9 @@ footer{
    .row h2 {
 >>>>>>> bcc7c298ffaab1b647de3c46adfb633796f785f8
     text-align: left;
-    padding-top: 70px;
+    padding-top: 50px;
     margin-bottom: 0px;
-    font-size: 125px;
+    font-size: 115px;
     font-stretch: auto;
     line-height: 1.5;
     font-weight: 230;
@@ -136,31 +140,49 @@ footer{
     display: block;
     width: 100%;
     height: 34px;
+    border-color: black;
    }
 
    /* google map styling */
    #map_canvas{
      margin-left: auto;
      margin-right: auto; 
-    width: 70%;
+     margin-top: 3px;
+    width: 100%;
   }
 /* play again button on restuarant  */
   #again{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    background-color: rgb(224, 186, 60);
+    margin-top: 15px;
+    margin-left: 40px;
+   background-color: rgb(224, 186, 60);
    border-color: black;
-    
+
   }
-/* card on restuarant */
+
+  #res-name{
+    color: black;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .card-text{
+    color: black;
+    margin-top: 5px;
+  }
   .card{
-  margin-left: 100%;
-  margin-top:10%;
-
+    margin-left: 40px;
+    height: 90%;
+    width: 50%;
   }
 
-  /* #row2{
+#best-match{
+  margin-top: 100px;
+  margin-left: -180px;
+  font-size: 100px;
+  line-height: 40pt;
+}
+
+   #row2{
     padding-top: 10px;
     margin: auto;
     z-index: 40;
@@ -172,7 +194,7 @@ footer{
     clear: both;
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
-  } */
+  } 
    .row-survey{
     padding: 15px;
     margin: 50px;
@@ -217,11 +239,14 @@ footer{
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
    }
-   #buttonSave {
+   #buttonSave, #buttonReview {
     background-color: rgb(223, 188, 113);
     border-color: black;
    }
-
+#buttonReview{
+  width: 20%;
+  margin-left: 125px;
+}
    /* Restuarant's media queries */
    @media screen and (max-width: 768px){
    .container{
@@ -240,6 +265,7 @@ footer{
       }
       
     }
+
   }   
    
    /* @media(max-width: 320px ){
@@ -392,9 +418,15 @@ footer{
   height:500px;
   width:500px;
 }
-
+/* Survey.hadlebars */
+h5 {
+ font-size: 25px;
+ font-weight: 100; 
+}
 
  .row-survey{
+ font-size: 15px;
+ font-weight: 100;
  padding: 15px;
  margin: 50px;
  box-sizing: border-box;
@@ -470,6 +502,7 @@ footer{
 
 
 
+
 .panel-body{
   padding: 15px;
    padding-top: 15px;
@@ -480,7 +513,41 @@ footer{
 }
 
 /* ginna's code to see text in restaurant and be able to do changes....*/
-#res-name, #res-data{
-  color: black;
+/* #res-name, #res-data{
+  color: black; */
+}
+
+/* media queries */
+@media screen and (max-width: 980px) {
+  .row {
+  width: 100%;
+}
+}
+@media screen and (max-width: 768px) {
+  .row {
+    width: 100%;
+}
+}
+@media screen and (max-width: 640px) {
+ .row {
+   width: 80%
+ }
+  .row h2 {
+   width:98%;
+   clear:both;
+   } 
+ }
+ @media screen and (max-width: 768px) {
+  .row h2 {
+    width: 80%;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .row h2 {
+    width: 90%
+  }
 }
 

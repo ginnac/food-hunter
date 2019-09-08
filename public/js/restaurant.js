@@ -51,8 +51,11 @@ function loadScript(src, callback) {
 //team please create your own key with google maps API; message me if you need help with that!! :)
 
 
+
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
+
  function(){log('google-loader has been loaded');});
+
  
  var map;
  var infowindow;
@@ -126,6 +129,16 @@ function loadScript(src, callback) {
 
 
       }
+
+      //need to do math random to get random responses (3 responses the most, and then 
+      groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
+      console.log(groupChosenRestaurantIndex);
+      groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
+      console.log(groupChosenRestaurant);
+      $("#res-name").text(groupChosenRestaurant.name);
+      $("#res-data").text(groupChosenRestaurant.formatted_address);
+
+      console.log(groupChosenRestaurant);
   }
 
 
@@ -165,7 +178,7 @@ function loadScript(src, callback) {
     API.getPhotoArray(chosenRestaurant).then(function (data) {
         
         console.log (data.urls_array);
-        var scrUrl = data. urls_array;
+        var scrUrl = data.urls_array;
 
         allresponses = [];
 
