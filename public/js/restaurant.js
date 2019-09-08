@@ -55,6 +55,7 @@ function loadScript(src, callback) {
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
 
 
+
  function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
@@ -129,6 +130,16 @@ function loadScript(src, callback) {
 
 
       }
+
+      //need to do math random to get random responses (3 responses the most, and then 
+      groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
+      console.log(groupChosenRestaurantIndex);
+      groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
+      console.log(groupChosenRestaurant);
+      $("#res-name").text(groupChosenRestaurant.name);
+      $("#res-data").text(groupChosenRestaurant.formatted_address);
+
+      console.log(groupChosenRestaurant);
   }
 
 
