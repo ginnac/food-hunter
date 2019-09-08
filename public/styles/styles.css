@@ -102,31 +102,30 @@ height:100%;
     display: block;
     width: 100%;
     height: 34px;
+    border-color: black;
    }
 
    /* google map styling */
    #map_canvas{
      margin-left: auto;
      margin-right: auto; 
-    width: 70%;
+     margin-top: 10px;
+    width: 100%;
   }
 /* play again button on restuarant  */
   #again{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    background-color: rgb(224, 186, 60);
+    margin-top: 15px;
+   background-color: rgb(224, 186, 60);
    border-color: black;
-    
+
   }
-/* card on restuarant */
+   
   .card{
-  margin-left: 100%;
-  margin-top:10%;
-
+    height: 80%;
   }
 
-  /* #row2{
+
+   #row2{
     padding-top: 10px;
     margin: auto;
     z-index: 40;
@@ -138,7 +137,7 @@ height:100%;
     clear: both;
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
-  } */
+  } 
    .row-survey{
     padding: 15px;
     margin: 50px;
@@ -206,6 +205,7 @@ height:100%;
       }
       
     }
+
   }   
    
    /* @media(max-width: 320px ){
@@ -442,6 +442,7 @@ h5 {
 
 
 
+
 .panel-body{
   padding: 15px;
    padding-top: 15px;
@@ -452,8 +453,8 @@ h5 {
 }
 
 /* ginna's code to see text in restaurant and be able to do changes....*/
-#res-name, #res-data{
-  color: black;
+/* #res-name, #res-data{
+  color: black; */
 }
 
 /* media queries */
@@ -489,3 +490,4 @@ h5 {
     width: 90%
   }
 }
+

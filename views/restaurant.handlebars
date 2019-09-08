@@ -1,29 +1,36 @@
 <!--- html with divs for the choosen restaurant and the 3 options -->
 <div id="results">
+  <div class="container">
+    <div class="row" id="row2">
+        <div class="col-lg-8 col-md-4">
+          <div class="card">
+          <div class="card-body">
+          <img src="" class="card-img-top" alt="...">
+            <h5 id="res-name" class="card-title">Card title that wraps to a new line</h5>
+            <p id="res-data" class="card-text">This is a longer card with supporting text below as a natural lead-in to
+              additional
+              content. This content is a little bit longer.</p>
 
-<div class="container">
-  <div class="row">
-   <div class="card-columns">
-      <div class="card">
-        <img id="res-photo" src="" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 id= "res-name" class="card-title">Card title that wraps to a new line</h5>
-          <p id= "res-data" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-
+              <div id="map_canvas" style="height:200px"></div>
+          </div>
         </div>
+        <div id="reset-game">
+      <button type="button" class="btn btn-primary" id="again" >Play Again</button>
       </div>
     </div>
   </div>
-</div>
 
-</pre>
+
+{{!-- </pre>
 <div id="map_canvas" style="height:300px"></div>
-<pre></pre>
+<pre></pre> --}}
 <!-- connect to its own javascript -->
+{{!-- <div id="reset-game">
+  <button type="button" class="btn btn-primary" id="again">Play Again</button>
+</div> --}}
 
 
-<h5>
+{{!-- <h5>
 <strong> Enter below Zipcode and select a type of restaurant </strong>
 </h5>
 
@@ -52,6 +59,6 @@
 
 <div id="reset-game">
   <button type="button" class="btn btn-primary" class = "again" id="again">Play Again</button>
-</div>
+</div> --}}
 
 <script src="/js/restaurant.js"></script>
