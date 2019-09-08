@@ -19,22 +19,42 @@ background-size: 1000px 1000px;
 
 }
 
+#no-background{
+  
+  padding-top: 0.5px;
+    margin: auto;
+    z-index: 10;
+    /*position:fixed*/
+    left: 30px;
+    right: 30px;
+    clear: both; 
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
+;
 h1 {
   font-size: 24px;
   padding: 18px; 
 }
+
+footer{
+  margin-top:100px;
+}
+
+
+
 .row {
     padding-top: 0.5px;
     margin: auto;
     z-index: 10;
-    position: fixed;
+    /*position:fixed*/
     left: 30px;
     right: 30px;
     clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
-  .row h2 {
+   h2 {
     text-align: left;
     padding-top: 70px;
     margin-bottom: 0px;
