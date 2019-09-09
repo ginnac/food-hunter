@@ -54,9 +54,8 @@ function loadScript(src, callback) {
 
  loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtCZISv6xfi48x9WbfjCY-yIolj9lo6tk&libraries=places&callback=initialize', 
 
+ function(){log('google-loader has been loaded');});
 
-
- function(){log('google-loader has been loaded, but not the maps-API ');});
  
  var map;
  var infowindow;
@@ -191,6 +190,7 @@ function loadScript(src, callback) {
         console.log(groupChosenRestaurant);
         $("#res-name").text(groupChosenRestaurant.name);
         $("#res-data").text(groupChosenRestaurant.formatted_address);
+        $("#res-type").text(chosenRestaurant);
         $("#res-photo").attr("src", scrUrl);
 
         console.log(groupChosenRestaurant);
@@ -210,10 +210,7 @@ function loadScript(src, callback) {
           
             $.post("/api/email/" + restaurantId + "/" + currentEmail)
             .then(function (data) {
-                console.log("hit the route");
-                //go back to front page
-                window.location.href = "/";
-                console.log("hit the route after");
+               
             });
           
          
@@ -253,6 +250,18 @@ function loadScript(src, callback) {
     $.get("/api/reviews/" + zipCode + "/" + restaurantType)
         .then(function (data) {
          
+          if(data.length === 0){
+            var nDiv = $("<div>");
+            var nP = $("<p>");
+            nP.text("There is no restaurant that matches the Zipcode and Restaurant type entered, however our database is growing everyday" <br> 
+            "Play the Food Hunter Game and Let the world know how you like it by leaving a review after!")
+            nDiv.prepend(nP);
+            $("#reviews-records").prepend(nDiv);
+
+
+          }
+
+          else{
             console.log(data);
 
             for(var i=0;i<data.length;i++){
@@ -262,15 +271,38 @@ function loadScript(src, callback) {
               newDiv.attr("id","reviewsId");
               //create p, and add text in rating 
               var newP = $("<p>");
-              newP.text(" Restaurant Name: " + data[i].name + " Address: " + data[i].address + " Cuisine: " + data[i].kind_food + "Reviews: " + data[i].Reviews[0].app_restaurant );
+              var secNewP = $("<p>");
+              var thirNewP =$("<p>");
+              var fortNewP =$("<p>");
+              var fifNewP=$("<p>");
+              var sixNewP=$("<p>");
+              var sevNewP=$("<p>");
+              var eighNewP = $("<p>");
+              newP.text("Restaurant Name: " + data[i].name);
+              secNewP.text("Address: " + data[i].address);
+              thirNewP.text("Cuisine: " + data[i].kind_food);
+              
+               //for now we are getting the first review, as part of improvents we will look inside data[i].reviews to get all reviews appended 
+              fortNewP.text("Restaurant Rank: " + data[i].Reviews[0].restaurant_rank);
+              fifNewP.text("Restaurant Comments: " + data[i].Reviews[0].restaurant_review);
+              sixNewP.text("App and Experience Rank: " + data[i].Reviews[0].app_rank);
+              sevNewP.text("App and Experience Comments: " + data[i].Reviews[0].app_comments);
+             
               //create image element and add atrribute SRC to it, still and moving attribute, and append it to div
               var pic = $("<img>");
               pic.attr("src", data[i].photo);
               //append p and append image
-              newDiv.append(newP);
-              newDiv.append(pic);
+              newDiv.prepend(sevNewP);
+              newDiv.prepend(sixNewP);
+              newDiv.prepend(fifNewP);
+              newDiv.prepend(fortNewP);
+              newDiv.prepend(thirNewP);
+              newDiv.prepend(secNewP);
+              newDiv.prepend(newP);
+              newDiv.prepend(pic);
               //prepend div to the DIV ID#pic-of-animals in the dom
               $("#reviews-records").prepend(newDiv);
+            }
           }
         });
       });

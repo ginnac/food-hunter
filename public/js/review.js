@@ -8,8 +8,11 @@ $("#buttonReview").off().on("click", function (event) {
     var id = locationArr[2];
     var rev1 = $("#r1").val();
     var rev2 = $("#r2").val();
+    var appComment =$("#app-comments").val();
+    var restComment =$("#restaurant-comments").val();
 
-    var experience = { app_review: rev1, app_restaurant:rev2, RestaurantId:id }
+
+    var experience = { app_rank: rev1, app_comments:appComment, restaurant_rank: rev2, restaurant_review:restComment, RestaurantId:id }
     $.ajax({
         headers: {
             "Content-Type": "application/json"

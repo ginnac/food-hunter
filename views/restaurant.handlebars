@@ -10,12 +10,17 @@
             <p id="res-data" class="card-text">
             </p>
 
-            <div id="map_canvas" style="height:130px"></div>
-          </div>
-        </div>
-        
-        <div id="reset-game">
-          <button type="button" class="btn btn-primary" id="again">Play Again</button>
+
+<div class="container">
+  <div class="row">
+   <div class="card-columns">
+      <div class="card">
+        <img id="res-photo" src="" class="card-img-top" alt="...">
+        <div class="card-body">
+
+          <h4 id= "res-name" class="card-title"></h4>
+          <p id= "res-type" class="card-text"></p>
+          <h5 id= "res-data" class="card-text"></h5>
         </div>
         
       </div>
@@ -29,13 +34,22 @@
     </div>
 
 
-    {{!-- </pre>
+  
 <div id="map_canvas" style="height:300px"></div>
-<pre></pre> --}}
-    <!-- connect to its own javascript -->
-    {{!-- <div id="reset-game">
-  <button type="button" class="btn btn-primary" id="again">Play Again</button>
-</div> --}}
+
+<pre></pre>
+<!-- connect to its own javascript -->
+
+<div class="row">
+<div class="col-5" id="get-reviews-one">
+
+  <h5>
+    <strong> Enter below Zipcode and select a type of restaurant to find <br>
+              restaurants's reviews from past food hunters!!! 
+    </strong>
+  </h5>
+
+
 
 
     {{!-- <h5>
@@ -57,16 +71,26 @@
             
 </select>
 
-  <input type="text" name="zipcode" id="zipcode" placeholder="zipcode">
+<input type="text" name="zipcode" id="zipcode" placeholder="Zipcode">
  
- <button type="submit" class="btn btn-primary btn-lg btn-block" id="reviewsButton"> Submit</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block" id="reviewsButton"> Submit</button>
+
 </div>
 
-<div id="reviews-records"></div>
 
+</div>
+<div class="row">
+<div id="reviews-records"></div>
+</div>
+
+
+<div class="row">
 
 <div id="reset-game">
   <button type="button" class="btn btn-primary" class = "again" id="again">Play Again</button>
-</div> --}}
+
+</div>
+</div>
+
 
     <script src="/js/restaurant.js"></script>

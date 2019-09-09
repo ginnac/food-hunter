@@ -4,6 +4,7 @@ var userEmail;
 var restaurantId;
 
 module.exports = function (app) {
+
   // Get all experiences
   app.get("/api/groups", function (req, res) {
     db.Experiences.findAll({}).then(function (dbExperiences) {
@@ -24,7 +25,10 @@ module.exports = function (app) {
         pass: 'food-hunter*'
       }
     });
-    var urlReview = "http://localhost:3003/get-review/" + restaurantId;
+
+    //change domain for current domain for code to not run 404 
+    var urlReview = "https://hungry-food-hunter.herokuapp.com/get-review/" + restaurantId;
+
     var mailOptions = {
       from: 'foodhunter.noreply@gmail.com',
       to: userEmail,
@@ -81,11 +85,6 @@ module.exports = function (app) {
   });
 
 
-
-
-
-  //find all restaurants
-
   // Create a new expereince
   app.post("/api/restaurants", function(req, res) {
     console.log(req.body);
@@ -93,6 +92,7 @@ module.exports = function (app) {
       res.json(dbRestaurants);
     });
   });
+
 
   // Create a new expereince
   app.post("/api/groups", function (req, res) {
@@ -102,15 +102,12 @@ module.exports = function (app) {
     });
   });
 
-
   // POST route for create the review
   app.post("/api/review/:id", function (req, res) {
     db.Reviews.create(req.body).then(function (dbReviews) {
       res.json(dbReviews);
     });
   });
-
-
 
   // create rows with photos' urls arrays 
   app.post("/api/photos", function(req, res) {
@@ -128,7 +125,6 @@ module.exports = function (app) {
       res.json(dbPhotos);
     });
   });
-
 
   // Delete an experience by id
   app.delete("/api/experiences/:groupName", function (req, res) {
@@ -149,17 +145,42 @@ app.get("/api/reviews/:zipcode/:restaurantType", function(req,res){
       kind_food:req.params.restaurantType
     },
     include: [db.Reviews]
+  }).then(function(dbRestaurants){   
+    res.json(dbRestaurants);    
+  });
+});
+
+//get restaurants by name and address
+app.get("/api/reviews/:zipcode/:restaurantType", function(req,res){
+  console.log(req.params.zipcode);
+  console.log(req.params.restaurantType);
+  db.Restaurants.findAll({
+    where: {
+      zip_code: req.params.zipcode,
+      kind_food:req.params.restaurantType
+    },
+    include: [db.Reviews]
+  }).then(function(dbRestaurants){   
+    res.json(dbRestaurants);    
+  });
+});
+
+
+////////get all the restaurants and reviews in our database
+app.get("/api/all-restaurants", function(req,res){
+  console.log(req.params.zipcode);
+  console.log(req.params.restaurantType);
+  db.Restaurants.findAll({
+   include: [db.Reviews]
   }).then(function(dbRestaurants){
-    
-    res.json(dbRestaurants);
-    
+    res.json(dbRestaurants); 
   });
 });
 
 
 
-  //get on experience by the group name
 
+  //get on experience by the group name
   app.get("/api/experiences/:groupName", function (req, res) {
     console.log(req.params.groupName);
     db.Experiences.findOne({
