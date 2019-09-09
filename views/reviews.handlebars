@@ -2,90 +2,93 @@
 
 <div id="survey-page" class="container-fluid">
   <div class="row-survey">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          
+
+
+          <div class="panel-body">
+
+            <div class="row-questions">
+              <div class="row-align-center">
+
+                <div class="row">
+                  <h3 class="panel-title">Review</h3>
+                </div>
+
+                <div class="row">
+                  <h5>
+                    <strong>How would you rate the Food Hunter Experience?</strong>
+
+                  </h5>
+                  <select class="chosen-select" id="r1">
+                    <option value>Select Option</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                  </select>
+                </div>
+
+                <div class="row">
+
+
+                  <h5>
+                    <strong> Please, leave your comments on the Food Hunter App</strong>
+
+                  </h5>
+
+                  <textarea class="form-control" id="app-comments" aria-describedby="Comments"
+                    placeholder="Comments Here"></textarea>
+                </div>
+
+
+                <div class="row">
+                  <h5>
+                    <strong>How would you Rate the Restaurant?</strong>
+                  </h5>
+                  <select class="chosen-select" id="r2">
+                    <option value>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                  </select>
+                </div>
+
+                <div class="row">
+
+                  <br>
+                  <h5>
+                    <strong> Please, leave your comments on the Restaurant and Experience</strong>
+
+                  </h5>
+
+                  <textarea class="form-control" id="restaurant-comments" aria-describedby="Comments"
+                    placeholder="Comments Here"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-          
-           <div class="row-questions"> 
-            <div class="row-align-center">
-
-            <div class="col-md-10">
-              <h3 class="panel-title">Review</h3>
-              <br>
-              <h3 id="eater-number">
-            
-          </h3>
-          <br>
-              <h5>
-                <strong>How would you rate the Food Hunter Experience?</strong>
-
-              </h5>
-              <select class="chosen-select" id="r1">
-                <option value>Select Option</option>
-
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                
-              </select>
-            </div>
-
-             <div class="col-md-10">
-            
-          </h3>
-          <br>
-              <h5>
-                <strong> Please, leave your comments on the Food Hunter App</strong>
-
-              </h5>
-              
-              <textarea class="form-control" id="app-comments" aria-describedby="Comments" placeholder="Comments Here"></textarea>
-            </div>
-
-          {{!-- </div>
-        </div> --}}
-        <div class="col-md-10">
-          <h5>
-            <strong>How would you Rate the Restaurant?</strong>
-          </h5>
-          <select class="chosen-select" id="r2">
-            <option value>Select Option</option>
-            <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-
-          </select>
-        </div>
-
-           <div class="col-md-10">
-            
-          </h3>
-          <br>
-              <h5>
-                <strong> Please, leave your comments on the Restaurant and Experience</strong>
-
-              </h5>
-              
-              <textarea class="form-control" id="restaurant-comments" aria-describedby="Comments" placeholder="Comments Here"></textarea>
-            </div>
-        
       </div>
-       <br>
-      {{!-- Sumbit Button --}}
-      <button type="submit" class="btn btn-primary btn-lg btn-block" id="buttonReview"> Submit</button>
-      <hr>
-   
+    </div>
+  </div>
+</div>
+<br>
+{{!-- Sumbit Button --}}
+<button type="submit" class="btn btn-primary btn-lg btn-block" id="buttonReview"> Submit</button>
+<hr>
 
 
 
-      <!-- connect to its own javascript -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <!-- connect to its own javascript -->
-      <script src="/js/review.js"></script>
+
+<!-- connect to its own javascript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- connect to its own javascript -->
+<script src="/js/review.js"></script>
