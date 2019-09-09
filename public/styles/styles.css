@@ -24,7 +24,6 @@ img{
   height:200px;
 }
 
-<<<<<<< HEAD
 #no-background{
   
   padding-top: 0.5px;
@@ -50,7 +49,6 @@ footer{
 
 
 .row {
-=======
 /* h1 {
   font-size: 24px;
   padding: 18px; 
@@ -58,7 +56,7 @@ footer{
 
 /* the background black box */
  #row1{
->>>>>>> bcc7c298ffaab1b647de3c46adfb633796f785f8
+
     padding-top: 0.5px;
     margin: auto;
     z-index: 10;
@@ -68,16 +66,16 @@ footer{
     clear: both; 
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
-<<<<<<< HEAD
+
   }
    h2 {
-=======
+
   }  
 
   /* title of the food-hunter in index-page */
 
    .row h2 {
->>>>>>> bcc7c298ffaab1b647de3c46adfb633796f785f8
+
     text-align: left;
     padding-top: 50px;
     margin-bottom: 0px;
