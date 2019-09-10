@@ -92,6 +92,17 @@ footer{
 
   }
 
+  #app-comments{
+    margin-bottom: 20px;
+  }
+
+  #restaurant-comments{
+    margin-bottom: 30px;
+  }
+  #text-review{
+    margin-bottom: 32px;
+    font-size: 45px;
+  }
 
   /* title of the food-hunter in index-page */
 
@@ -356,6 +367,12 @@ h5 {
   .row {
     width: 100%;
 }
+#buttonReview{
+  margin-left: 30%;
+}
+
+
+
 }
 @media screen and (max-width: 640px) {
  .row {
@@ -369,6 +386,10 @@ h5 {
    #again{
     margin-top:-110px;
     margin-left:-15px;
+    }
+
+    #buttonReview{
+      margin-left: 10%;
     }
 
  }
@@ -435,6 +456,9 @@ h5 {
    .rev-btn{
     width:95%;
   }
+  #buttonReview{
+    margin-left: 0%;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -464,6 +488,10 @@ margin-left: 13px;
  width:150px;
 }
 
+#buttonReview{
+  margin-left: 0%;
+  width:70%;
+}
 }
 
 
