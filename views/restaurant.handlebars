@@ -1,64 +1,58 @@
 <!--- html with divs for the choosen restaurant and the 3 options -->
 <div id="results">
-  <div class="container">
-    <div class="row" id="row2">
-      <div class="col-lg-8 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="" class="card-img-top" id="res-photo" alt="...">
-            <h5 id="res-name" class="card-title"></h5>
-            <p id="res-data" class="card-text">
-            </p>
 
 
 <div class="container">
-  <div class="row">
-   <div class="card-columns">
-      <div class="card">
+  <div class="row" id="row2" >
+      <div id="title-div"> <p>This is your best match!!!</p></div>
+      <div class="col-xs-12 col-lg-5 card">
         <img id="res-photo" src="" class="card-img-top" alt="...">
-        <div class="card-body">
-
+          <div class="card-body">
+          
           <h4 id= "res-name" class="card-title"></h4>
           <p id= "res-type" class="card-text"></p>
           <h5 id= "res-data" class="card-text"></h5>
         </div>
         
       </div>
-      <div id="best-match">
-          <p>This is</p>
-          <br>
-          <p>your best</p>
-          <br><br>
-          <p>Match!!!</p>
+      <div class="col-xs-12 col-lg-5" id="best-match" >
+          <p class="best-match">This is</p>
+          
+          <p class="best-match">your best</p>
+          
+          <p class="best-match">Match!!!</p>
+          <div id="reset-game">
+          <button type="button" class="btn btn-primary" class = "again" id="again">Play Again</button>
+
+          </div>
         </div>
     </div>
 
-
-  
-<div id="map_canvas" style="height:300px"></div>
+  <div class="row" id="row2" >
+    <p class="map-text">If you you don't like your match, minimize the map to see the markers for other 20 matches <br class="break"> 
+    within 10 miles from your zipcode ( click on the markers and Restaurant Name will display )</p>
+    
+    <div id="map_canvas" style="height:300px"></div>
 
 <pre></pre>
 <!-- connect to its own javascript -->
+  </div>
+   
 
-<div class="row">
-<div class="col-5" id="get-reviews-one">
+  
 
-  <h5>
-    <strong> Enter below Zipcode and select a type of restaurant to find <br>
-              restaurants's reviews from past food hunters!!! 
-    </strong>
+<div class="row" id="row2">
+<div class="col-12" id="get-reviews-one">
+
+  <h5 id="text-title">
+   Enter below Zipcode and select a type of restaurant to find restaurants's reviews from past food hunters!!! 
+  
   </h5>
 
 
-
-
-    {{!-- <h5>
-<strong> Enter below Zipcode and select a type of restaurant </strong>
-</h5>
-
 <div id="reviews">
-    <select class="chosen-select" id="cs-1">
-              <option value>Select Option</option>
+    <select class="chosen-select rev-btn" id="cs-1">
+              <option value>Select Restaurant</option>
 
               <option value="american restaurant">American Cuisine</option>
               <option value="indian restaurant">Indian Cuisine</option>
@@ -71,9 +65,8 @@
             
 </select>
 
-<input type="text" name="zipcode" id="zipcode" placeholder="Zipcode">
- 
-<button type="submit" class="btn btn-primary btn-lg btn-block" id="reviewsButton"> Submit</button>
+<input type="text" name="zipcode" class="rev-btn" id="zipcode" placeholder="Zipcode">
+ <button type="submit" class="btn btn-primary btn-lg btn-block" id="reviewsButton"> Find Reviews</button>
 
 </div>
 
@@ -86,11 +79,10 @@
 
 <div class="row">
 
-<div id="reset-game">
-  <button type="button" class="btn btn-primary" class = "again" id="again">Play Again</button>
-
 </div>
-</div>
+ </div>
+  </div>
+   </div>
 
 
     <script src="/js/restaurant.js"></script>

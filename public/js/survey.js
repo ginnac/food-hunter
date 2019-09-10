@@ -270,7 +270,7 @@ url: "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAtCZISv6xfi48x
         localStorage.setItem("zipcode", zipcode);
 
         //display the next html - restautants
-        window.location.href = "/restaurant/" + groupname;
+       window.location.href = "/restaurant/" + groupname;
         console.log("page loaded");
       
       }
