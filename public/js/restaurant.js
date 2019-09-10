@@ -2,17 +2,7 @@
 //when clicking on reset game
 $("#reset-game").on("click", function (event) {
 event.preventDefault();
-  window.location.href = "/"; });
-
-// });
-// var userEmail = localStorage.getItem("currentEmail")
-// $.post("/api/email/" + currentId + "/" + userEmail)
-//     .then(function (data) {
-//         console.log("hit the route");
-//         //go back to front page
-//         window.location.href = "/";
-//         console.log("hit the route after");
-//     });
+  window.location.href = "/"; })
 
 
 var latitude;
@@ -121,7 +111,6 @@ function loadScript(src, callback) {
           for (var i = 0; i<results.length;i++){
               markers.push(createMarker(results[i]));
               allResponses.push(results[i]);
-
               console.log(allResponses);              
           }
 
@@ -129,16 +118,6 @@ function loadScript(src, callback) {
 
 
       }
-
-      //need to do math random to get random responses (3 responses the most, and then 
-      groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length + 1);
-      console.log(groupChosenRestaurantIndex);
-      groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
-      console.log(groupChosenRestaurant);
-      $("#res-name").text(groupChosenRestaurant.name);
-      $("#res-data").text(groupChosenRestaurant.formatted_address);
-
-      console.log(groupChosenRestaurant);
   }
 
 
@@ -180,17 +159,20 @@ function loadScript(src, callback) {
         console.log (data.urls_array);
         var scrUrl = data.urls_array;
 
-        allresponses = [];
+        //allresponses = [];
 
         //need to do math random to get random responses (3 responses the most, and then 
-        groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length - 1);
+        groupChosenRestaurantIndex=Math.floor(Math.random() * allResponses.length);
 
+      if(groupChosenRestaurantIndex < 0){
+        groupChosenRestaurantIndex === 0
+      }
         console.log(groupChosenRestaurantIndex);
         groupChosenRestaurant = allResponses[groupChosenRestaurantIndex];
         console.log(groupChosenRestaurant);
         $("#res-name").text(groupChosenRestaurant.name);
         $("#res-data").text(groupChosenRestaurant.formatted_address);
-        $("#res-type").text(chosenRestaurant);
+       // $("#res-type").text(chosenRestaurant);
         $("#res-photo").attr("src", scrUrl);
 
         console.log(groupChosenRestaurant);
@@ -251,14 +233,9 @@ function loadScript(src, callback) {
         .then(function (data) {
          
           if(data.length === 0){
-            var nDiv = $("<div>");
-            var nP = $("<p>");
-            nP.text("There is no restaurant that matches the Zipcode and Restaurant type entered, however our database is growing everyday" <br> 
-            "Play the Food Hunter Game and Let the world know how you like it by leaving a review after!")
-            nDiv.prepend(nP);
-            $("#reviews-records").prepend(nDiv);
-
-
+            
+            alert("There is no restaurant that matches the Zipcode and Restaurant type entered, however our database is growing everyday. Play the Food Hunter Game and Let the world know how you like it, reply to the email review after!")
+          
           }
 
           else{
@@ -269,6 +246,7 @@ function loadScript(src, callback) {
               //create div
               var newDiv = $("<div>");
               newDiv.attr("id","reviewsId");
+              newDiv.attr("class","col-xs-12 col-lg-10")
               //create p, and add text in rating 
               var newP = $("<p>");
               var secNewP = $("<p>");
@@ -277,6 +255,7 @@ function loadScript(src, callback) {
               var fifNewP=$("<p>");
               var sixNewP=$("<p>");
               var sevNewP=$("<p>");
+
               var eighNewP = $("<p>");
               newP.text("Restaurant Name: " + data[i].name);
               secNewP.text("Address: " + data[i].address);
@@ -291,6 +270,7 @@ function loadScript(src, callback) {
               //create image element and add atrribute SRC to it, still and moving attribute, and append it to div
               var pic = $("<img>");
               pic.attr("src", data[i].photo);
+              pic.attr("id", "review-photo");
               //append p and append image
               newDiv.prepend(sevNewP);
               newDiv.prepend(sixNewP);
