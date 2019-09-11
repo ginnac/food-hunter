@@ -67,7 +67,7 @@ function loadScript(src, callback) {
  request = {
    location:center,
    //radius values is in meters
-   radius:16090,
+   radius:10045,
    query: chosenRestaurant,
    //price level values from 0 to 4
    maxPriceLevel: priceMax,
@@ -92,7 +92,7 @@ function loadScript(src, callback) {
 
      var request = {
          location:event.latLng,
-         radius: 16090,
+         radius: 10045,
          query: chosenRestaurant,
          openNow: true,
          maxPriceLevel: priceMax,
