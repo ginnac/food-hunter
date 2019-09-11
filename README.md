@@ -38,7 +38,7 @@ Technologies:
 - - -
 ## Team Members
 
-  * [Ginna Camplbell](https://github.com/ginnac)
+  * [Ginna Campbell](https://github.com/ginnac)
   * [Iver Gil](https://github.com/ivergil)
   * [Nathalie Solis-Maravilla](https://github.com/natsolis)
   * [Katsu Tanabe](https://github.com/katsutanabe)
