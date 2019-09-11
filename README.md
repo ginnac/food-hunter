@@ -1,6 +1,6 @@
 # Food-Hunter
 
-* **#[Live DEMO](https://hungry-food-hunter.herokuapp.com/) 
+* # [Live DEMO](https://hungry-food-hunter.herokuapp.com/) 
 
 
 ## UTAH Coding Bootcamp PROJECT 2
@@ -29,19 +29,19 @@ In this project we have developed an application using technologies such as Expr
 
 Technologies:
 
-* *[Express](https://www.npmjs.com/package/express)
-* *[mySql](https://www.npmjs.com/package/mysql)
-* *[Nodemailer](https://www.npmjs.com/package/nodemailer)
-* *[Handlerbars](https://www.npmjs.com/package/handlebars)
+* [Express](https://www.npmjs.com/package/express)
+* [mySql](https://www.npmjs.com/package/mysql)
+* [Nodemailer](https://www.npmjs.com/package/nodemailer)
+* [Handlerbars](https://www.npmjs.com/package/handlebars)
 
 
 - - -
 ## Team Members
 
-  **[Ginna Camplbell](https://github.com/ginnac)
-  **[Iver Gil](https://github.com/ivergil)
-  **[Nathalie Solis-Maravilla](https://github.com/natsolis)
-  **[Katsu Tanabe](https://github.com/katsutanabe)
+  * [Ginna Camplbell](https://github.com/ginnac)
+  * [Iver Gil](https://github.com/ivergil)
+  * [Nathalie Solis-Maravilla](https://github.com/natsolis)
+  * [Katsu Tanabe](https://github.com/katsutanabe)
   
 
 - - -
