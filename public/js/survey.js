@@ -64,8 +64,7 @@ API.getEaterNumber(groupname).then(function (data) {
 
 //function to redeem survey page
 function displaySurvey(numberEaters, numEater, zipcode) {
-
-
+  
   if (numberEaters > 0) {
 
     //when clicking submit button, used off.on to prevent duplicates
