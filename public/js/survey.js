@@ -24,7 +24,6 @@ else {
   $("#eater-number").text("Eater #" + numEater);
 }
 
-
 //getting stored answers array
 var retreiveAnswersArray = localStorage.getItem("answersArr");
 if (retreiveAnswersArray === null) {
@@ -35,7 +34,6 @@ else {
   answers = JSON.parse(retreiveAnswersArray);
   console.log(answers.length);
 }
-
 
 //console the group name
 console.log(groupname);
