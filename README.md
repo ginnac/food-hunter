@@ -1,13 +1,8 @@
 # Food-Hunter
 
-* # [Live DEMO](https://hungry-food-hunter.herokuapp.com/) 
+* # [Live Demo](https://hungry-food-hunter.herokuapp.com/) 
 
-
-## UTAH Coding Bootcamp PROJECT 2
-
----
-
-### Overview
+## Overview
 
 WELCOME TO FOOD-HUNTER! 
 
@@ -35,7 +30,6 @@ Technologies:
 * [Handlerbars](https://www.npmjs.com/package/handlebars)
 
 
-- - -
 ## Team Members
 
   * [Ginna Campbell](https://github.com/ginnac)
